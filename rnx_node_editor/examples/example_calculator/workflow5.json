@@ -1,0 +1,428 @@
+{
+    "id": 1975960789152,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 1975963889232,
+            "title": "Artificial Data",
+            "pos_x": -421.0,
+            "pos_y": -65.0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1975963952464,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1975963889280,
+            "title": "PCA",
+            "pos_x": -163.00000000000003,
+            "pos_y": -139.70312500000003,
+            "inputs": [
+                {
+                    "id": 1975963984176,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1975963984224,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "2"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 1975963984896,
+            "title": "Scatter Plot",
+            "pos_x": 73.0,
+            "pos_y": -211.0,
+            "inputs": [
+                {
+                    "id": 1975963985664,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 1975963984944,
+            "title": "Scatter Plot",
+            "pos_x": -146.25,
+            "pos_y": 64.25,
+            "inputs": [
+                {
+                    "id": 1975963985808,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 1975963985760,
+            "title": "RNX",
+            "pos_x": 89.0,
+            "pos_y": -35.0,
+            "inputs": [
+                {
+                    "id": 1975963985904,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1975963986000,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1975963986048,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1975963985856,
+            "title": "Line Chart",
+            "pos_x": 328.50000000000006,
+            "pos_y": -41.75,
+            "inputs": [
+                {
+                    "id": 1975963986144,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1976094574192,
+            "title": "LLE",
+            "pos_x": -177.89062500000003,
+            "pos_y": -334.53125000000006,
+            "inputs": [
+                {
+                    "id": 1976094572704,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1976094575008,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {},
+            "op_code": 3
+        },
+        {
+            "id": 1976094572752,
+            "title": "ISOMAP",
+            "pos_x": -183.51562500000003,
+            "pos_y": 202.34375000000006,
+            "inputs": [
+                {
+                    "id": 1976094574768,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1976094574816,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {},
+            "op_code": 5
+        },
+        {
+            "id": 1976094575440,
+            "title": "Scatter Plot",
+            "pos_x": 61.25,
+            "pos_y": -355.0,
+            "inputs": [
+                {
+                    "id": 1976094345776,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 1976094345296,
+            "title": "Scatter Plot",
+            "pos_x": 65.0,
+            "pos_y": 293.75000000000006,
+            "inputs": [
+                {
+                    "id": 1976094154560,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 1976094153888,
+            "title": "RNX",
+            "pos_x": 223.75000000000006,
+            "pos_y": 155.00000000000003,
+            "inputs": [
+                {
+                    "id": 1976094100736,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1976093765440,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1976093763328,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1976094152112,
+            "title": "RNX",
+            "pos_x": 272.49999999999994,
+            "pos_y": -294.99999999999994,
+            "inputs": [
+                {
+                    "id": 1976113856672,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1976113858544,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1976113859600,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1976113859744,
+            "title": "Line Chart",
+            "pos_x": 502.4999999999999,
+            "pos_y": -284.99999999999994,
+            "inputs": [
+                {
+                    "id": 1976113791136,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1976115021328,
+            "title": "Line Chart",
+            "pos_x": 462.4999999999999,
+            "pos_y": 186.24999999999997,
+            "inputs": [
+                {
+                    "id": 1976116794320,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        }
+    ],
+    "edges": [
+        {
+            "id": 1975963986768,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1975963984176
+        },
+        {
+            "id": 1976011814800,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1975963985808
+        },
+        {
+            "id": 1976011815424,
+            "edge_type": 2,
+            "start": 1975963984224,
+            "end": 1975963985664
+        },
+        {
+            "id": 1976090263456,
+            "edge_type": 2,
+            "start": 1975963984224,
+            "end": 1975963985904
+        },
+        {
+            "id": 1976088706544,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1975963986000
+        },
+        {
+            "id": 1976020902432,
+            "edge_type": 2,
+            "start": 1975963986048,
+            "end": 1975963986144
+        },
+        {
+            "id": 1976094574912,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1976094574768
+        },
+        {
+            "id": 1976094573376,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1976094572704
+        },
+        {
+            "id": 1976094575392,
+            "edge_type": 2,
+            "start": 1976094574816,
+            "end": 1976094154560
+        },
+        {
+            "id": 1976094100400,
+            "edge_type": 2,
+            "start": 1976094575008,
+            "end": 1976094345776
+        },
+        {
+            "id": 1976094110336,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1976093765440
+        },
+        {
+            "id": 1976094109952,
+            "edge_type": 2,
+            "start": 1976094574816,
+            "end": 1976094100736
+        },
+        {
+            "id": 1976113856624,
+            "edge_type": 2,
+            "start": 1976094575008,
+            "end": 1976113856672
+        },
+        {
+            "id": 1976113857440,
+            "edge_type": 2,
+            "start": 1975963952464,
+            "end": 1976113858544
+        },
+        {
+            "id": 1976113831792,
+            "edge_type": 2,
+            "start": 1976113859600,
+            "end": 1976113791136
+        },
+        {
+            "id": 1976116656976,
+            "edge_type": 2,
+            "start": 1976093763328,
+            "end": 1976116794320
+        }
+    ]
+}

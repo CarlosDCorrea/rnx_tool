@@ -1,0 +1,3 @@
+NodeWidgetContent { background: transparent }
+QLabel { color: white }
+QMessageBox QLabel{color: black}

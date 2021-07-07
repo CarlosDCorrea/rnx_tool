@@ -1,0 +1,121 @@
+action: GLOB, msg: packaging
+cwd: D:\universidad\9no semestre\proyecto de grado\rnx_project\src\rnx_node_editor
+cmd: 'd:\universidad\9no semestre\proyecto de grado\rnx_project\src\rnx_node_editor\venv\scripts\python.exe' setup.py sdist --formats=zip --dist-dir '.tox\dist'
+running sdist
+running egg_info
+writing rnx_node_editor.egg-info\PKG-INFO
+writing dependency_links to rnx_node_editor.egg-info\dependency_links.txt
+writing entry points to rnx_node_editor.egg-info\entry_points.txt
+writing requirements to rnx_node_editor.egg-info\requires.txt
+writing top-level names to rnx_node_editor.egg-info\top_level.txt
+adding license file 'LICENCE' (matched pattern 'LICEN[CS]E*')
+reading manifest file 'rnx_node_editor.egg-info\SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+warning: no files found matching 'LICENSE'
+warning: no previously-included files matching '__pycache__' found under directory '*'
+warning: no files found matching '*.jpg' under directory 'docs'
+warning: no files found matching '*.gif' under directory 'docs'
+writing manifest file 'rnx_node_editor.egg-info\SOURCES.txt'
+running check
+creating rnx_node_editor-0.9.0
+creating rnx_node_editor-0.9.0\docs
+creating rnx_node_editor-0.9.0\docs\build
+creating rnx_node_editor-0.9.0\docs\build\html
+creating rnx_node_editor-0.9.0\docs\build\html\_static
+creating rnx_node_editor-0.9.0\docs\source
+creating rnx_node_editor-0.9.0\rnx_node_editor
+creating rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+creating rnx_node_editor-0.9.0\tests
+copying files to rnx_node_editor-0.9.0...
+copying HISTORY.rst -> rnx_node_editor-0.9.0
+copying LICENCE -> rnx_node_editor-0.9.0
+copying MANIFEST.in -> rnx_node_editor-0.9.0
+copying README.rst -> rnx_node_editor-0.9.0
+copying requirements.txt -> rnx_node_editor-0.9.0
+copying setup.py -> rnx_node_editor-0.9.0
+copying docs\Makefile -> rnx_node_editor-0.9.0\docs
+copying docs\make.bat -> rnx_node_editor-0.9.0\docs
+copying docs\build\html\_static\file.png -> rnx_node_editor-0.9.0\docs\build\html\_static
+copying docs\build\html\_static\minus.png -> rnx_node_editor-0.9.0\docs\build\html\_static
+copying docs\build\html\_static\plus.png -> rnx_node_editor-0.9.0\docs\build\html\_static
+copying docs\source\conf.py -> rnx_node_editor-0.9.0\docs\source
+copying docs\source\index.rst -> rnx_node_editor-0.9.0\docs\source
+copying rnx_node_editor\__init__.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\cutline_graphics_cutline.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\edge_graphical_edge.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_edge.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_graphics_node.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_graphics_scene.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_node.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_scene.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_scene_clipboard.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_scene_history.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_serializable.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_socket.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\node_widget_node.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\rnx_ne_widget.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\rnx_node_window.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\socket_graphics_socket.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor\view_graphics_view.py -> rnx_node_editor-0.9.0\rnx_node_editor
+copying rnx_node_editor.egg-info\PKG-INFO -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\SOURCES.txt -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\dependency_links.txt -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\entry_points.txt -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\not-zip-safe -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\requires.txt -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying rnx_node_editor.egg-info\top_level.txt -> rnx_node_editor-0.9.0\rnx_node_editor.egg-info
+copying tests\__init__.py -> rnx_node_editor-0.9.0\tests
+copying tests\test_000_import.py -> rnx_node_editor-0.9.0\tests
+Writing rnx_node_editor-0.9.0\setup.cfg
+creating '.tox\dist\rnx_node_editor-0.9.0.zip' and adding 'rnx_node_editor-0.9.0' to it
+adding 'rnx_node_editor-0.9.0'
+adding 'rnx_node_editor-0.9.0\docs'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info'
+adding 'rnx_node_editor-0.9.0\tests'
+adding 'rnx_node_editor-0.9.0\HISTORY.rst'
+adding 'rnx_node_editor-0.9.0\LICENCE'
+adding 'rnx_node_editor-0.9.0\MANIFEST.in'
+adding 'rnx_node_editor-0.9.0\PKG-INFO'
+adding 'rnx_node_editor-0.9.0\README.rst'
+adding 'rnx_node_editor-0.9.0\requirements.txt'
+adding 'rnx_node_editor-0.9.0\setup.cfg'
+adding 'rnx_node_editor-0.9.0\setup.py'
+adding 'rnx_node_editor-0.9.0\docs\build'
+adding 'rnx_node_editor-0.9.0\docs\source'
+adding 'rnx_node_editor-0.9.0\docs\make.bat'
+adding 'rnx_node_editor-0.9.0\docs\Makefile'
+adding 'rnx_node_editor-0.9.0\docs\build\html'
+adding 'rnx_node_editor-0.9.0\docs\build\html\_static'
+adding 'rnx_node_editor-0.9.0\docs\build\html\_static\file.png'
+adding 'rnx_node_editor-0.9.0\docs\build\html\_static\minus.png'
+adding 'rnx_node_editor-0.9.0\docs\build\html\_static\plus.png'
+adding 'rnx_node_editor-0.9.0\docs\source\conf.py'
+adding 'rnx_node_editor-0.9.0\docs\source\index.rst'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\cutline_graphics_cutline.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\edge_graphical_edge.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_edge.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_graphics_node.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_graphics_scene.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_node.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_scene.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_scene_clipboard.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_scene_history.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_serializable.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_socket.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\node_widget_node.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\rnx_ne_widget.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\rnx_node_window.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\socket_graphics_socket.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\view_graphics_view.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor\__init__.py'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\dependency_links.txt'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\entry_points.txt'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\not-zip-safe'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\PKG-INFO'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\requires.txt'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\SOURCES.txt'
+adding 'rnx_node_editor-0.9.0\rnx_node_editor.egg-info\top_level.txt'
+adding 'rnx_node_editor-0.9.0\tests\test_000_import.py'
+adding 'rnx_node_editor-0.9.0\tests\__init__.py'
+removing 'rnx_node_editor-0.9.0' (and everything under it)

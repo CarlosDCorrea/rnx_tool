@@ -1,0 +1,131 @@
+{
+    "id": 2304715455168,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 2304721295488,
+            "title": "Artificial data",
+            "pos_x": -608.21875,
+            "pos_y": -357.2031250000001,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2304721354128,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2304721354272,
+            "title": "LE",
+            "pos_x": -139.71874999999994,
+            "pos_y": -457.7031250000001,
+            "inputs": [
+                {
+                    "id": 2304721383584,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                },
+                {
+                    "id": 2304721383632,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2304721383680,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2304756042384,
+            "title": "LE",
+            "pos_x": -141.7656249999999,
+            "pos_y": -684.0820312499998,
+            "inputs": [
+                {
+                    "id": 2304756042624,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                },
+                {
+                    "id": 2304756042672,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2304756042720,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2304756042576,
+            "title": "Artificial data",
+            "pos_x": -609.0156249999995,
+            "pos_y": -618.5820312499997,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2304756043104,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 3,
+                    "socket_type": 0
+                }
+            ],
+            "content": {}
+        }
+    ],
+    "edges": [
+        {
+            "id": 2304755965760,
+            "edge_type": 2,
+            "start": 2304721354128,
+            "end": 2304721383584
+        },
+        {
+            "id": 2304756040944,
+            "edge_type": 2,
+            "start": 2304721354128,
+            "end": 2304721383632
+        },
+        {
+            "id": 2304756040992,
+            "edge_type": 2,
+            "start": 2304756042720,
+            "end": 2304756042672
+        },
+        {
+            "id": 2304756041040,
+            "edge_type": 2,
+            "start": 2304756042624,
+            "end": 2304721354128
+        }
+    ]
+}

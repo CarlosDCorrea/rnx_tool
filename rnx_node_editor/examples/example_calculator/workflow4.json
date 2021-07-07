@@ -1,0 +1,303 @@
+{
+    "id": 2078374041152,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 2078374153808,
+            "title": "Artificial Data",
+            "pos_x": -463.75000000000006,
+            "pos_y": -97.00000000000001,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2078374241616,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2078374242288,
+            "title": "PCA",
+            "pos_x": -167.0,
+            "pos_y": -216.0,
+            "inputs": [
+                {
+                    "id": 2078374274000,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2078374274048,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "2"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2078374242336,
+            "title": "Scatter Plot",
+            "pos_x": -158.25,
+            "pos_y": 9.000000000000014,
+            "inputs": [
+                {
+                    "id": 2078374274816,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 2078374274096,
+            "title": "Scatter Plot",
+            "pos_x": 109.0,
+            "pos_y": -238.0,
+            "inputs": [
+                {
+                    "id": 2078374274960,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 2078374275008,
+            "title": "RNX",
+            "pos_x": 63.500000000000014,
+            "pos_y": -80.25,
+            "inputs": [
+                {
+                    "id": 2078374275104,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2078374275200,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2078374275248,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2078374275056,
+            "title": "Line Chart",
+            "pos_x": 296.00000000000006,
+            "pos_y": -59.25000000000001,
+            "inputs": [
+                {
+                    "id": 2078374275344,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 2076617066576,
+            "title": "LLE",
+            "pos_x": -126.24999999999989,
+            "pos_y": 163.7499999999999,
+            "inputs": [
+                {
+                    "id": 2076619296720,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2076618669792,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {},
+            "op_code": 3
+        },
+        {
+            "id": 2076618669888,
+            "title": "Scatter Plot",
+            "pos_x": 147.0,
+            "pos_y": 115.0,
+            "inputs": [
+                {
+                    "id": 2076618829152,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 11
+        },
+        {
+            "id": 2076638198416,
+            "title": "RNX",
+            "pos_x": 362.0,
+            "pos_y": 83.0,
+            "inputs": [
+                {
+                    "id": 2076638198128,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2076638198176,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2076638198224,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2076618829440,
+            "title": "Line Chart",
+            "pos_x": 643.0,
+            "pos_y": 67.0,
+            "inputs": [
+                {
+                    "id": 2076638495600,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        }
+    ],
+    "edges": [
+        {
+            "id": 2078374275776,
+            "edge_type": 2,
+            "start": 2078374241616,
+            "end": 2078374274000
+        },
+        {
+            "id": 2078418110400,
+            "edge_type": 2,
+            "start": 2078374241616,
+            "end": 2078374274816
+        },
+        {
+            "id": 2078462559472,
+            "edge_type": 2,
+            "start": 2078374274048,
+            "end": 2078374274960
+        },
+        {
+            "id": 2078496889872,
+            "edge_type": 2,
+            "start": 2078374274048,
+            "end": 2078374275104
+        },
+        {
+            "id": 2078496889920,
+            "edge_type": 2,
+            "start": 2078374241616,
+            "end": 2078374275200
+        },
+        {
+            "id": 2078496952224,
+            "edge_type": 2,
+            "start": 2078374275248,
+            "end": 2078374275344
+        },
+        {
+            "id": 2076652977360,
+            "edge_type": 2,
+            "start": 2078374241616,
+            "end": 2076619296720
+        },
+        {
+            "id": 2076618669504,
+            "edge_type": 2,
+            "start": 2076618669792,
+            "end": 2076618829152
+        },
+        {
+            "id": 2076638282656,
+            "edge_type": 2,
+            "start": 2076618669792,
+            "end": 2076638198128
+        },
+        {
+            "id": 2076638198512,
+            "edge_type": 2,
+            "start": 2078374241616,
+            "end": 2076638198176
+        },
+        {
+            "id": 2076618828144,
+            "edge_type": 2,
+            "start": 2076638198224,
+            "end": 2076638495600
+        }
+    ]
+}
