@@ -1,0 +1,112 @@
+{
+    "id": 2097579448304,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 2097579787696,
+            "title": "Artificial data",
+            "pos_x": -200.0,
+            "pos_y": -300.0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2097579838144,
+                    "index": 0,
+                    "position": 3,
+                    "socket_type": 0
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2097579787744,
+            "title": "PCA",
+            "pos_x": 200.0,
+            "pos_y": -300.0,
+            "inputs": [
+                {
+                    "id": 2097579838336,
+                    "index": 0,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2097579838384,
+                    "index": 0,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2097579787792,
+            "title": "LLE",
+            "pos_x": -192.18749999999986,
+            "pos_y": 16.406250000000057,
+            "inputs": [
+                {
+                    "id": 2097579838576,
+                    "index": 0,
+                    "position": 2,
+                    "socket_type": 0
+                },
+                {
+                    "id": 2097579838624,
+                    "index": 1,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2097579838672,
+                    "index": 0,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        },
+        {
+            "id": 2097579838288,
+            "title": "LE",
+            "pos_x": -718.75,
+            "pos_y": -166.01562499999994,
+            "inputs": [
+                {
+                    "id": 2097579838864,
+                    "index": 0,
+                    "position": 2,
+                    "socket_type": 0
+                },
+                {
+                    "id": 2097579838912,
+                    "index": 1,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2097579838960,
+                    "index": 0,
+                    "position": 3,
+                    "socket_type": 1
+                }
+            ],
+            "content": {}
+        }
+    ],
+    "edges": [
+        {
+            "id": 2097579838816,
+            "edge_type": 2,
+            "start": 2097579838960,
+            "end": 2097579838624
+        }
+    ]
+}

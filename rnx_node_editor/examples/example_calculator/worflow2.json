@@ -1,0 +1,1458 @@
+{
+    "id": 2614792404368,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 2614792559584,
+            "title": "Artificial Data",
+            "pos_x": -933.4414062499995,
+            "pos_y": -288.59374999999994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841901984,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841941536,
+            "title": "PCA",
+            "pos_x": -557.4414062499995,
+            "pos_y": -299.59374999999994,
+            "inputs": [
+                {
+                    "id": 2614841959568,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841959616,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841960816,
+            "title": "Artificial Data",
+            "pos_x": -930.4414062499994,
+            "pos_y": -129.59374999999994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841960960,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841960912,
+            "title": "Artificial Data",
+            "pos_x": -931.4414062499995,
+            "pos_y": 43.40625000000006,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841961104,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841961056,
+            "title": "PCA",
+            "pos_x": -559.4414062499995,
+            "pos_y": -127.59374999999994,
+            "inputs": [
+                {
+                    "id": 2614841961248,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841961296,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614842130592,
+            "title": "PCA",
+            "pos_x": -570.4414062499995,
+            "pos_y": 44.90625000000006,
+            "inputs": [
+                {
+                    "id": 2614842130832,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614842130880,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614842131696,
+            "title": "RNX",
+            "pos_x": -145.3124999999999,
+            "pos_y": -131.24999999999991,
+            "inputs": [
+                {
+                    "id": 2614842131792,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614842131888,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614842131936,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614859391424,
+            "title": "PCA",
+            "pos_x": -300.5957031249998,
+            "pos_y": -205.87499999999994,
+            "inputs": [
+                {
+                    "id": 2614859391664,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859391712,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859391520,
+            "title": "PCA",
+            "pos_x": -289.5957031249998,
+            "pos_y": -378.37499999999994,
+            "inputs": [
+                {
+                    "id": 2614859267568,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859267616,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859266464,
+            "title": "PCA",
+            "pos_x": -287.5957031249998,
+            "pos_y": -550.375,
+            "inputs": [
+                {
+                    "id": 2614859268048,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859267856,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859267712,
+            "title": "Artificial Data",
+            "pos_x": -661.5957031249998,
+            "pos_y": -207.37499999999994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859265984,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859267952,
+            "title": "Artificial Data",
+            "pos_x": -660.5957031249997,
+            "pos_y": -380.37499999999994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859391184,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859391088,
+            "title": "RNX",
+            "pos_x": 124.53320312499989,
+            "pos_y": -382.0312499999999,
+            "inputs": [
+                {
+                    "id": 2614859391856,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614859391904,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859391952,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614859391280,
+            "title": "Artificial Data",
+            "pos_x": -663.5957031249998,
+            "pos_y": -539.375,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859392144,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859392432,
+            "title": "PCA",
+            "pos_x": -723.2275390624995,
+            "pos_y": 565.9267578124998,
+            "inputs": [
+                {
+                    "id": 2614859392672,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859392720,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859392528,
+            "title": "PCA",
+            "pos_x": -712.2275390624995,
+            "pos_y": 393.42675781249983,
+            "inputs": [
+                {
+                    "id": 2614859392960,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859393008,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859392816,
+            "title": "PCA",
+            "pos_x": -710.2275390624995,
+            "pos_y": 221.42675781249983,
+            "inputs": [
+                {
+                    "id": 2614859393248,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859393296,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859393104,
+            "title": "Artificial Data",
+            "pos_x": -1084.2275390624995,
+            "pos_y": 564.4267578124998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859393488,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859393392,
+            "title": "Artificial Data",
+            "pos_x": -1083.2275390624995,
+            "pos_y": 391.42675781249983,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859393680,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859393584,
+            "title": "RNX",
+            "pos_x": -298.0986328124999,
+            "pos_y": 389.7705078124999,
+            "inputs": [
+                {
+                    "id": 2614859393968,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614859394016,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859394064,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614859393776,
+            "title": "Artificial Data",
+            "pos_x": -1086.2275390624995,
+            "pos_y": 232.42675781249983,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614859394256,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614859394544,
+            "title": "PCA",
+            "pos_x": -1339.6826171874993,
+            "pos_y": -206.16796874999983,
+            "inputs": [
+                {
+                    "id": 2614859394784,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614859394832,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859394640,
+            "title": "PCA",
+            "pos_x": -1328.6826171874993,
+            "pos_y": -378.66796874999983,
+            "inputs": [
+                {
+                    "id": 2614841450560,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841450608,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614859394928,
+            "title": "PCA",
+            "pos_x": -1326.6826171874993,
+            "pos_y": -550.6679687499998,
+            "inputs": [
+                {
+                    "id": 2614841450848,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841450896,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841450704,
+            "title": "Artificial Data",
+            "pos_x": -1700.6826171874993,
+            "pos_y": -207.66796874999983,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841451088,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841450992,
+            "title": "Artificial Data",
+            "pos_x": -1699.682617187499,
+            "pos_y": -380.66796874999983,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841451280,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841451184,
+            "title": "RNX",
+            "pos_x": -914.5537109374997,
+            "pos_y": -382.3242187499998,
+            "inputs": [
+                {
+                    "id": 2614841451568,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614841451616,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841451664,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614841451376,
+            "title": "Artificial Data",
+            "pos_x": -1702.6826171874993,
+            "pos_y": -539.6679687499998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841451856,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841452144,
+            "title": "PCA",
+            "pos_x": -848.3496093749994,
+            "pos_y": -621.2070312499998,
+            "inputs": [
+                {
+                    "id": 2614841452384,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841452432,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841452240,
+            "title": "PCA",
+            "pos_x": -837.3496093749994,
+            "pos_y": -793.7070312499998,
+            "inputs": [
+                {
+                    "id": 2614841452672,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841452720,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841452528,
+            "title": "PCA",
+            "pos_x": -835.3496093749994,
+            "pos_y": -965.7070312499998,
+            "inputs": [
+                {
+                    "id": 2614841452960,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841453008,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841452816,
+            "title": "Artificial Data",
+            "pos_x": -1209.3496093749995,
+            "pos_y": -622.7070312499998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841453200,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841453104,
+            "title": "Artificial Data",
+            "pos_x": -1208.3496093749993,
+            "pos_y": -795.7070312499998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841453392,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841453296,
+            "title": "RNX",
+            "pos_x": -423.2207031249998,
+            "pos_y": -797.3632812499997,
+            "inputs": [
+                {
+                    "id": 2614841453680,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614841453728,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841453776,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614841453488,
+            "title": "Artificial Data",
+            "pos_x": -1211.3496093749995,
+            "pos_y": -954.7070312499998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614841453968,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614841454256,
+            "title": "PCA",
+            "pos_x": -1809.653320312499,
+            "pos_y": 370.61425781249994,
+            "inputs": [
+                {
+                    "id": 2614841454496,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614841454544,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614841454352,
+            "title": "PCA",
+            "pos_x": -1798.653320312499,
+            "pos_y": 198.11425781249994,
+            "inputs": [
+                {
+                    "id": 2614904197376,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904197424,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614904197232,
+            "title": "PCA",
+            "pos_x": -1796.653320312499,
+            "pos_y": 26.114257812499943,
+            "inputs": [
+                {
+                    "id": 2614904197664,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904197712,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614904197520,
+            "title": "Artificial Data",
+            "pos_x": -2170.653320312499,
+            "pos_y": 369.11425781249994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904197904,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614904197808,
+            "title": "Artificial Data",
+            "pos_x": -2169.653320312499,
+            "pos_y": 196.11425781249994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904198096,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614904198000,
+            "title": "RNX",
+            "pos_x": -1384.5244140624995,
+            "pos_y": 194.45800781249997,
+            "inputs": [
+                {
+                    "id": 2614904198384,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614904198432,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904198480,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614904198192,
+            "title": "Artificial Data",
+            "pos_x": -2172.653320312499,
+            "pos_y": 37.11425781249994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904198672,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614904198960,
+            "title": "PCA",
+            "pos_x": -256.3085937499997,
+            "pos_y": 303.47558593749994,
+            "inputs": [
+                {
+                    "id": 2614904199200,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904199248,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614904199056,
+            "title": "PCA",
+            "pos_x": -245.30859374999972,
+            "pos_y": 130.97558593749994,
+            "inputs": [
+                {
+                    "id": 2614904199488,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904199536,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614904199344,
+            "title": "PCA",
+            "pos_x": -243.30859374999972,
+            "pos_y": -41.02441406250006,
+            "inputs": [
+                {
+                    "id": 2614904199776,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904199824,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": "6"
+            },
+            "op_code": 1
+        },
+        {
+            "id": 2614904199632,
+            "title": "Artificial Data",
+            "pos_x": -617.3085937499998,
+            "pos_y": 301.97558593749994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904200016,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614904199920,
+            "title": "Artificial Data",
+            "pos_x": -616.3085937499995,
+            "pos_y": 128.97558593749994,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904200208,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 2614904200112,
+            "title": "RNX",
+            "pos_x": 168.82031249999994,
+            "pos_y": 127.31933593749997,
+            "inputs": [
+                {
+                    "id": 2614904200496,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 2614904200544,
+                    "index": 1,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 2614904200592,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 2614904200304,
+            "title": "Artificial Data",
+            "pos_x": -619.3085937499998,
+            "pos_y": -30.024414062500057,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 2614904200784,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        }
+    ],
+    "edges": [
+        {
+            "id": 2614842088224,
+            "edge_type": 2,
+            "start": 2614841959616,
+            "end": 2614842131792
+        },
+        {
+            "id": 2614842087888,
+            "edge_type": 2,
+            "start": 2614841961296,
+            "end": 2614842131792
+        },
+        {
+            "id": 2614842087936,
+            "edge_type": 2,
+            "start": 2614842130880,
+            "end": 2614842131792
+        },
+        {
+            "id": 2614842087696,
+            "edge_type": 2,
+            "start": 2614841960960,
+            "end": 2614842131888
+        },
+        {
+            "id": 2614841961680,
+            "edge_type": 2,
+            "start": 2614841901984,
+            "end": 2614842131888
+        },
+        {
+            "id": 2614842087984,
+            "edge_type": 2,
+            "start": 2614841961104,
+            "end": 2614842131888
+        },
+        {
+            "id": 2614859392048,
+            "edge_type": 2,
+            "start": 2614859265984,
+            "end": 2614859391904
+        },
+        {
+            "id": 2614859392192,
+            "edge_type": 2,
+            "start": 2614859391184,
+            "end": 2614859391904
+        },
+        {
+            "id": 2614859392240,
+            "edge_type": 2,
+            "start": 2614859392144,
+            "end": 2614859391904
+        },
+        {
+            "id": 2614859392288,
+            "edge_type": 2,
+            "start": 2614859267856,
+            "end": 2614859391856
+        },
+        {
+            "id": 2614859392336,
+            "edge_type": 2,
+            "start": 2614859391712,
+            "end": 2614859391856
+        },
+        {
+            "id": 2614859392384,
+            "edge_type": 2,
+            "start": 2614859267616,
+            "end": 2614859391856
+        },
+        {
+            "id": 2614859394160,
+            "edge_type": 2,
+            "start": 2614859393488,
+            "end": 2614859394016
+        },
+        {
+            "id": 2614859394304,
+            "edge_type": 2,
+            "start": 2614859393680,
+            "end": 2614859394016
+        },
+        {
+            "id": 2614859394352,
+            "edge_type": 2,
+            "start": 2614859394256,
+            "end": 2614859394016
+        },
+        {
+            "id": 2614859394400,
+            "edge_type": 2,
+            "start": 2614859393296,
+            "end": 2614859393968
+        },
+        {
+            "id": 2614859394448,
+            "edge_type": 2,
+            "start": 2614859392720,
+            "end": 2614859393968
+        },
+        {
+            "id": 2614859394496,
+            "edge_type": 2,
+            "start": 2614859393008,
+            "end": 2614859393968
+        },
+        {
+            "id": 2614841451760,
+            "edge_type": 2,
+            "start": 2614841451088,
+            "end": 2614841451616
+        },
+        {
+            "id": 2614841451904,
+            "edge_type": 2,
+            "start": 2614841451280,
+            "end": 2614841451616
+        },
+        {
+            "id": 2614841451952,
+            "edge_type": 2,
+            "start": 2614841451856,
+            "end": 2614841451616
+        },
+        {
+            "id": 2614841452000,
+            "edge_type": 2,
+            "start": 2614841450896,
+            "end": 2614841451568
+        },
+        {
+            "id": 2614841452048,
+            "edge_type": 2,
+            "start": 2614859394832,
+            "end": 2614841451568
+        },
+        {
+            "id": 2614841452096,
+            "edge_type": 2,
+            "start": 2614841450608,
+            "end": 2614841451568
+        },
+        {
+            "id": 2614841453872,
+            "edge_type": 2,
+            "start": 2614841453200,
+            "end": 2614841453728
+        },
+        {
+            "id": 2614841454016,
+            "edge_type": 2,
+            "start": 2614841453392,
+            "end": 2614841453728
+        },
+        {
+            "id": 2614841454064,
+            "edge_type": 2,
+            "start": 2614841453968,
+            "end": 2614841453728
+        },
+        {
+            "id": 2614841454112,
+            "edge_type": 2,
+            "start": 2614841453008,
+            "end": 2614841453680
+        },
+        {
+            "id": 2614841454160,
+            "edge_type": 2,
+            "start": 2614841452432,
+            "end": 2614841453680
+        },
+        {
+            "id": 2614841454208,
+            "edge_type": 2,
+            "start": 2614841452720,
+            "end": 2614841453680
+        },
+        {
+            "id": 2614904198576,
+            "edge_type": 2,
+            "start": 2614904197904,
+            "end": 2614904198432
+        },
+        {
+            "id": 2614904198720,
+            "edge_type": 2,
+            "start": 2614904198096,
+            "end": 2614904198432
+        },
+        {
+            "id": 2614904198768,
+            "edge_type": 2,
+            "start": 2614904198672,
+            "end": 2614904198432
+        },
+        {
+            "id": 2614904198816,
+            "edge_type": 2,
+            "start": 2614904197712,
+            "end": 2614904198384
+        },
+        {
+            "id": 2614904198864,
+            "edge_type": 2,
+            "start": 2614841454544,
+            "end": 2614904198384
+        },
+        {
+            "id": 2614904198912,
+            "edge_type": 2,
+            "start": 2614904197424,
+            "end": 2614904198384
+        },
+        {
+            "id": 2614904200688,
+            "edge_type": 2,
+            "start": 2614904200016,
+            "end": 2614904200544
+        },
+        {
+            "id": 2614904200832,
+            "edge_type": 2,
+            "start": 2614904200208,
+            "end": 2614904200544
+        },
+        {
+            "id": 2614904200880,
+            "edge_type": 2,
+            "start": 2614904200784,
+            "end": 2614904200544
+        },
+        {
+            "id": 2614904200928,
+            "edge_type": 2,
+            "start": 2614904199824,
+            "end": 2614904200496
+        },
+        {
+            "id": 2614904200976,
+            "edge_type": 2,
+            "start": 2614904199248,
+            "end": 2614904200496
+        },
+        {
+            "id": 2614904201024,
+            "edge_type": 2,
+            "start": 2614904199536,
+            "end": 2614904200496
+        }
+    ]
+}

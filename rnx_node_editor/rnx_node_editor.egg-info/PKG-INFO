@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: rnx-node-editor
+Version: 0.9.0
+Summary: Python Boilerplate contains all the boilerplate you need to create a Python package.
+Home-page: https://github.com/CarlosDC/template
+Author: Carlos David Correa Lozano
+Author-email: carlosdcorrea3@gmail.com
+License: MIT license
+Description: Readme
+        ====
+        
+        
+        =======
+        History
+        =======
+        
+        0.9.0 (2021-04-25)
+        ------------------
+        
+        * First release as a library.
+        
+Keywords: _template
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
