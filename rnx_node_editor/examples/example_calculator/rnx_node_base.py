@@ -12,8 +12,6 @@ class RnxNodeBase(Node):
     icon = ""
     op_code = 0
     op_title = "Undefined"
-    content_labels = ["Dimensions", "Neighbours"]
-    content_label_obj_names = ["rnx_node_dimensions", "rnx_node_neighbours"]
 
     def __init__(self, scene, inputs=None, outputs=None):
         if outputs is None:

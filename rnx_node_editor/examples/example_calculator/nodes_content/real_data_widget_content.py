@@ -1,15 +1,33 @@
 from PyQt5.QtWidgets import QFormLayout, QLabel, QPushButton
 from rnx_node_editor.node_widget_node import NodeWidgetContent
-
+from examples.example_calculator.data_class.DataClass import Data
+from pandas import read_csv, read_excel
 
 class RealDataNodeContent(NodeWidgetContent):
-    def init_ui(self):
-        self.layout = QFormLayout()
-        self.setLayout(self.layout)
 
-        self.text_real_data = QLabel(self.node.content_labels[0])
-        self.button_open_data_set = QPushButton("...")
+    def __init__(self, node, config):
+        super().__init__(node)
+        self.config = config
+        self.data_returned = None
 
-        self.button_open_data_set.setObjectName(self.node.content_label_obj_names[0])
+    def run(self):
+        self.HD = None
+        print(self.config.extention)
+        if self.config.extention != ("csv" or "xlsx" or "mat"):
+            self.node.mark_dirty(True)
+            print("Is here")
+            return
 
-        self.layout.addRow(self.text_real_data, self.button_open_data_set)
+        if self.config.extention == "csv":
+            self.HD = read_csv(self.config.path)
+            print(self.HD)
+        if self.config.extention == "xlsx":
+            self.HD = read_excel(self.config.path)
+            print(self.HD)
+
+
+    def get_components(self):
+        return self.data_returned
+
+    def update(self):
+        self.node.markdirty(True)

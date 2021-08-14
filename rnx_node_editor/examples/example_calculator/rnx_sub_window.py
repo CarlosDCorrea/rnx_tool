@@ -115,15 +115,11 @@ class RnxSubWindow(RnxNodeEditorWidget):
     def handle_node_context_menu(self, event):
         if DEBUG_CONTEXT:
             print("NODE:: Context Menu")
-
         #  my form
+
         context_menu_node = QMenu()
         run_act = context_menu_node.addAction("Run")
-        mark_dirty_act = context_menu_node.addAction("Mark Dirty")
-        mark_descender_dirty_act = context_menu_node.addAction("Mark Descender dirty")
-        mark_invalid_act = context_menu_node.addAction("Mark Invalid")
-        unmarked_invalid_act = context_menu_node.addAction("Unmarked Invalid")
-        eval_act = context_menu_node.addAction("Eval Dirty")
+        setting = context_menu_node.addAction("Configurations")
         action = context_menu_node.exec_(self.mapToGlobal(event.pos()))
 
         selected = None
@@ -142,21 +138,14 @@ class RnxSubWindow(RnxNodeEditorWidget):
             print("SELECTED:: ", selected.__class__.__name__)
             print("SELECTED GNODE::", selected.gr_node)
 
-        if selected and action == mark_dirty_act:
-            selected.mark_dirty()
-        if selected and action == mark_descender_dirty_act:
-            selected.mark_descendents_dirty()
-        if selected and action == mark_invalid_act:
-            selected.mark_invalid()
-        if selected and action == unmarked_invalid_act:
-            selected.mark_invalid(False)
-        if selected and action == eval_act:
-            selected.eval()
-        #  @TODO: improve the run method in the nodes
 
         if selected and action == run_act:
-
             selected.run()
+
+        if selected and action == setting:
+            selected.configure()
+
+
 
 
     def handle_edge_context_menu(self, event):

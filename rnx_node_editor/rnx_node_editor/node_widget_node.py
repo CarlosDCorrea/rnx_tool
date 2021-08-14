@@ -9,16 +9,12 @@ class NodeWidgetContent(QWidget, Serializable):
         self.node = node
         self.layout = QVBoxLayout()
         self.condition = self.node.title
-        self.title_label = QLabel("Neighbourhoods" if self.condition != "PCA" else "dimensions")
 
         self.init_ui()
 
     def init_ui(self):
         self.layout.setContentsMargins(0, 0, 0, 0)
         self.setLayout(self.layout)
-        self.layout.addWidget(self.title_label)
-        e1 = MyQLineEdit()
-        self.layout.addWidget(e1)
 
     def set_editing_flag(self, value: bool) -> bool:
         self.node.scene.get_view().editing_flag = value

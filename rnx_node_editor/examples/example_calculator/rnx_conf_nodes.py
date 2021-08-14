@@ -1,13 +1,17 @@
+from PyQt5.QtCore import pyqtSignal
 from rnx_node_base import *
 from rnx_conf import *
 from nodes_content.methods_content import *
 from nodes_content.artificial_data_widgets_content import ArtificialDataNodeContent
 from nodes_content.real_data_widget_content import RealDataNodeContent
 from nodes_content.metrics_content import RnxMetricContent
+from nodes_content.table_of_data import TableOfDataNode
 from nodes_content.graphs_nodes_content import *
 from PyQt5.QtCore import QRunnable, QThreadPool
-from PyQt5.QtCore import pyqtSignal
-
+from config.ParametricMethodConfig import ParametricMethodConfigWindow
+from config.NoParametricMethodConfig import NoParametricMethodConfigWindow
+from config.ArtificialDataConfig import ArtificalDataConfigWindow
+from config.RealDataConfig import RealDataConfigWindow
 
 DEBUG = True
 
@@ -17,17 +21,20 @@ class RnxNodePCA(RnxNodeBase):
     icon = "icons/linear-regression.png"
     op_code = OP_NODE_PCA
     op_title = "PCA"
-    content_labels = ["Dimensions", ""]
-    content_label_obj_names = ["rnx_node_dimensions", ""]
 
     def init_inner_classes(self):
-        self.content = NonParametricMethodsContent(self)
+        self.config = NoParametricMethodConfigWindow(self)
+        self.content = NonParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         self.high_data = None
         self.low_data = None
         return self.content.run()
+
+    def configure(self):
+        self.config.show()
 
 
 @register_node(OP_NODE_MDS)
@@ -35,17 +42,20 @@ class RnxNodeMDS(RnxNodeBase):
     icon = "icons/mds.png"
     op_code = OP_NODE_MDS
     op_title = "MDS"
-    content_labels = ["Dimensions", ""]
-    content_label_obj_names = ["rnx_node_dimensions", ""]
 
     def init_inner_classes(self):
-        self.content = NonParametricMethodsContent(self)
+        self.config = NoParametricMethodConfigWindow(self)
+        self.content = NonParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         self.high_data = None
         self.low_data = None
         return self.content.run()
+
+    def configure(self):
+        self.config.exec_()
 
 
 @register_node(OP_NODE_KPCA)
@@ -53,17 +63,20 @@ class RnxNodeKPCA(RnxNodeBase):
     icon = ""
     op_code = OP_NODE_KPCA
     op_title = "KPCA"
-    content_labels = ["Dimensions", "Neighbours"]
-    content_label_obj_names = ["rnx_node_dimensions", "rnx_node_neighbours"]
 
     def init_inner_classes(self):
-        self.content = NonParametricMethodsContent(self)
+        self.config = NoParametricMethodConfigWindow(self)
+        self.content = NonParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         self.high_data = None
         self.low_data = None
         return self.content.run()
+
+    def configure(self):
+        self.config.exec_()
 
 
 @register_node(OP_NODE_LLE)
@@ -71,17 +84,20 @@ class RnxNodeLLE(RnxNodeBase):
     icon = "icons/graph.png"
     op_code = OP_NODE_LLE
     op_title = "LLE"
-    content_labels = ["Dimensions", "Neighbours"]
-    content_label_obj_names = ["rnx_node_dimensions", "rnx_node_neighbours"]
 
     def init_inner_classes(self):
-        self.content = ParametricMethodsContent(self)
+        self.config = ParametricMethodConfigWindow(self)
+        self.content = ParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         self.high_data = None
         self.low_data = None
         return self.content.run()
+
+    def configure(self):
+        self.config.exec_()
 
 
 @register_node(OP_NODE_LE)
@@ -89,11 +105,11 @@ class RnxNodeLE(RnxNodeBase):
     icon = ""
     op_code = OP_NODE_LE
     op_title = "LE"
-    content_labels = ["Dimensions", "Neighbours"]
-    content_label_obj_names = ["rnx_node_dimensions", "rnx_node_neighbours"]
 
     def init_inner_classes(self):
-        self.content = ParametricMethodsContent(self)
+        self.config = ParametricMethodConfigWindow(self)
+        self.content = ParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
@@ -101,23 +117,28 @@ class RnxNodeLE(RnxNodeBase):
         self.low_data = None
         return self.content.run()
 
+    def configure(self):
+        self.config.exec_()
 
 @register_node(OP_NODE_ISOMAP)
 class RnxNodeISOMAP(RnxNodeBase):
     icon = "icons/isomap.png"
     op_code = OP_NODE_ISOMAP
     op_title = "ISOMAP"
-    content_labels = ["Dimensions", "Neighbours"]
-    content_label_obj_names = ["rnx_node_dimensions", "rnx_node_neighbours"]
 
     def init_inner_classes(self):
-        self.content = ParametricMethodsContent(self)
+        self.config = ParametricMethodConfigWindow(self)
+        self.content = ParametricMethodsContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         self.high_data = None
         self.low_data = None
         return self.content.run()
+
+    def configure(self):
+        self.config.exec_()
 
 
 @register_node(OP_NODE_RNX)
@@ -174,22 +195,25 @@ class RnxNodeArtificialData(RnxNodeBase):
     icon = "icons/sphere.png"
     op_code = OP_NODE_ARTIFICIAL_DATA
     op_title = "Artificial Data"
-    content_labels = ["Data: ", ""]
-    content_label_obj_names = ["rnx_node_art_data", ""]
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[], outputs=[0])
 
     def init_inner_classes(self):
-        self.content = ArtificialDataNodeContent(self)
+        self.config = ArtificalDataConfigWindow(self)
+        self.content = ArtificialDataNodeContent(self, self.config)
+        self.config.addObservers(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
         return self.content.run()
 
+    def configure(self):
+        self.config.exec_()
+
     def get_node_components(self):
-        self.value = self.content.get_components()
-        return self.value
+        value = self.content.get_components()
+        return value
 
 
 @register_node(OP_NODE_REAL_DATA)
@@ -197,15 +221,21 @@ class RnxNodeRealData(RnxNodeBase):
     icon = "icons/real_data.png"
     op_code = OP_NODE_REAL_DATA
     op_title = "Real Data"
-    content_labels = ["Select data set ", ""]
-    content_label_obj_names = ["rnx_node_real_data", ""]
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[], outputs=[0])
 
     def init_inner_classes(self):
-        self.content = RealDataNodeContent(self)
+        self.config = RealDataConfigWindow(self)
+        self.content = RealDataNodeContent(self, self.config)
+        self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
+
+    def run(self):
+        return self.content.run()
+
+    def configure(self):
+        self.config.exec_()
 
 
 @register_node(OP_NODE_SCATTER_PLOT)
@@ -261,6 +291,25 @@ class RnxNodeLineChart(RnxNodeBase):
         self.mark_invalid(False)
 
 
+@register_node(OP_NODE_DATA_TABLE)
+class RnxNodeDataTable(RnxNodeBase):
+    icon = "icons/real_data.png"
+    op_code = OP_NODE_DATA_TABLE
+    op_title = "Data Table"
+
+    def __init__(self, scene):
+        super().__init__(scene, inputs=[1], outputs=[])
+
+    def init_inner_classes(self):
+        self.content = TableOfDataNode(self)
+        self.gr_node = NodeBaseGraphicsNode(self)
+
+    def run(self):
+        input_node = self.get_input()
+        data = input_node.get_node_components()
+        self.content.createTable(data)
+
+
 class WorkerThread(QRunnable):
     finished = pyqtSignal()
     progress = pyqtSignal(int)
@@ -271,3 +320,5 @@ class WorkerThread(QRunnable):
 
     def run(self) -> None:
         self.node.content.run()
+
+

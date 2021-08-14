@@ -11,36 +11,29 @@ from dimensionality_reduction_methods.lle import LLE
 
 
 class NonParametricMethodsContent(NodeWidgetContent):
-    def init_ui(self):
-        self.layout = QFormLayout()
-        self.setLayout(self.layout)
 
-        self.text_dimensions = QLabel(self.node.content_labels[0])
-        self.edit_text_dimensions = QLineEdit("")
-        self.edit_text_dimensions.setValidator(QIntValidator(1, 100))
-        self.edit_text_dimensions.setObjectName(self.node.content_label_obj_names[0])
+    def __init__(self, node, config):
+        super().__init__(node)
+        self.config = config
 
-        self.layout.addRow(self.text_dimensions, self.edit_text_dimensions)
-
-        self.edit_text_dimensions.textChanged.connect(self.node.on_input_changed)
 
     def serialize(self):
         res = super().serialize()
-        res['value'] = self.edit_text_dimensions.text()
+        res['value'] = self.config.d
         return res
 
     def deserialize(self, data, dictionary=None):
         res = super().deserialize(data, dictionary)
         try:
             value = data['value']
-            self.edit_text_dimensions.setText(value)
+            self.config.d = int(value)
             return True and res
         except Exception as e:
             dump_exception(e)
         return res
 
     def reduce_dimensions(self, method):
-        dimensions_value = int(self.edit_text_dimensions.text())
+        dimensions_value = self.config.d
         self.node.method = method(dimensions_value)
 
         return self.node.method.spectrum(self.node.high_data)
@@ -82,39 +75,24 @@ class NonParametricMethodsContent(NodeWidgetContent):
         self.node.mark_invalid(False)
         self.node.mark_dirty(False)
 
+    def update(self):
+        self.node.mark_dirty(True)
+
 
 class ParametricMethodsContent(NodeWidgetContent):
-    def init_ui(self):
-        self.layout = QFormLayout()
-        self.setLayout(self.layout)
 
-        self.text_dimensions = QLabel(self.node.content_labels[0])
-
-        self.edit_text_dimensions = QLineEdit("3")
-        self.edit_text_dimensions.setValidator(QIntValidator(1, 100))
-        self.edit_text_dimensions.setObjectName(self.node.content_label_obj_names[0])
-
-        self.text_neighbours = QLabel(self.node.content_labels[1])
-
-        self.edit_text_neighbours = QLineEdit("10")
-        self.edit_text_neighbours.setValidator(QIntValidator(1, 100))
-        self.edit_text_neighbours.setObjectName(self.node.content_label_obj_names[1])
-
-        self.layout.addRow(self.text_dimensions, self.edit_text_dimensions)
-        self.layout.addRow(self.text_neighbours, self.edit_text_neighbours)
-
-        self.edit_text_dimensions.textChanged.connect(self.node.on_input_changed)
-        self.edit_text_neighbours.textChanged.connect(self.node.on_input_changed)
-
+    def __init__(self, node, config):
+        super().__init__(node)
+        self.config = config
 
     def reduce_dimensions(self, method):
-        dimensions_value = int(self.edit_text_dimensions.text())
-        neighbours_value = int(self.edit_text_neighbours.text())
+        dimensions_value = self.config.d
+        neighbours_value = self.config.n
         self.node.method = method(dimensions_value, neighbours_value)
-
         return self.node.method.spectrum(self.node.high_data)
 
     def run(self):
+
         input_node = self.node.get_input()
         if not input_node:
             self.node.gr_node.setToolTip("There is not input connected")
@@ -122,7 +100,6 @@ class ParametricMethodsContent(NodeWidgetContent):
             return
 
         self.node.high_data = input_node.get_node_components()
-        print(self.node.high_data)
 
         if self.node.high_data is None:
             self.node.gr_node.setToolTip("Input is NaN")
@@ -150,3 +127,5 @@ class ParametricMethodsContent(NodeWidgetContent):
         self.node.mark_invalid(False)
         self.node.mark_dirty(False)
 
+    def update(self):
+        self.node.mark_dirty(True)

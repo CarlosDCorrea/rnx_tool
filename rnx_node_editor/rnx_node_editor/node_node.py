@@ -241,7 +241,7 @@ class Node(Serializable):
             edge = self.inputs[index].edges[0]
             #  this is the node we are connected in
             socket = edge.get_other_socket(self.inputs[index])
-            return socket.node
+            return socket.node # Retorna el node conectado en el socket especificado
         except IndexError as e:
             print(f"EXCEP: trying to get input, but {self.__class__.__name__} do not have one")
             return None

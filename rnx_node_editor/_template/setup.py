@@ -15,7 +15,6 @@ requirements = [ ]
 setup_requirements = [ ]
 
 test_requirements = [ ]
-
 setup(
     author="Carlos David Correa Lozano",
     author_email='carlosdcorrea3@gmail.com',
@@ -51,3 +50,4 @@ setup(
     version='0.9.0',
     zip_safe=False,
 )
+
