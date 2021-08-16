@@ -9,7 +9,7 @@ is that this class is a complement to the node_graphics_node
 which is the graphics part of the nodes, the node_graphics_node module
 contains the node view in the gui, and the node_node module, contains the behavior of node itself
 """
-DEBUG = False
+DEBUG = True
 
 
 class Node(Serializable):
@@ -67,7 +67,8 @@ class Node(Serializable):
                             index=counter_in,
                             position=self.input_socket_position,
                             socket_type=item,
-                            multi_edges=self.input_multi_edges,
+                            multi_edges= not self.input_multi_edges if (self.op_title == "RNX" and item == inputs[0])
+                                  else self.input_multi_edges,
                             count_on_this_node_site=len(inputs),
                             is_input=True)
             counter_in += 1
@@ -153,9 +154,12 @@ class Node(Serializable):
         if DEBUG: print("Remove edges of the node")
         for socket in self.inputs + self.outputs:
             # if socket.has_edge():
-            for edge in socket.edges:
+            print(f"Los edges del socket:{socket} son {socket.edges}")
+            for edge in socket.edges[0.]:
                 if DEBUG: print("Removing from socket", socket, "Edge", edge)
                 edge.remove()
+                print("La lista de edges: ", socket.edges)
+
         if DEBUG: print("Remove gr_scene")
         self.scene.scene.removeItem(self.gr_node)
         self.gr_node = None

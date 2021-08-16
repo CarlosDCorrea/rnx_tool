@@ -13,7 +13,7 @@ class RealDataNodeContent(NodeWidgetContent):
     def run(self):
         self.HD = None
         print(self.config.extention)
-        if self.config.extention != ("csv" or "xlsx" or "mat"):
+        if self.config.extention != ("csv" or "xlsx" or "mat") : # Como es ?
             self.node.mark_dirty(True)
             print("Is here")
             return

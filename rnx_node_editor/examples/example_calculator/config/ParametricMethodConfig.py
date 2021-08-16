@@ -7,8 +7,8 @@ class ParametricMethodConfigWindow(QDialog):
     def __init__(self, node, parent = None):
         super().__init__(parent)
         self.observers = []
-        self.d = None
-        self.n = None
+        self.d = 3
+        self.n = 10
         self.setFixedSize(300, 200)
         self.setWindowTitle("Configuration of node: " + node.op_title)
         self.init_ui()
@@ -63,6 +63,8 @@ class ParametricMethodConfigWindow(QDialog):
         self.close()
 
     def cancelEvt(self):
+        self.edit_text_dimensions.setText(str(self.d))
+        self.edit_text_neighbours.setText(str(self.n))
         self.close()
 
 

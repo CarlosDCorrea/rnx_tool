@@ -8,7 +8,7 @@ from dimensionality_reduction_methods.kpca import KPCA
 from dimensionality_reduction_methods.le import LE
 from dimensionality_reduction_methods.isomap import ISOMAP
 from dimensionality_reduction_methods.lle import LLE
-
+from views.dialog_window import Dialog
 
 class NonParametricMethodsContent(NodeWidgetContent):
 
@@ -67,6 +67,7 @@ class NonParametricMethodsContent(NodeWidgetContent):
         except Exception as e:
             dump_exception(e)
             self.node.mark_invalid()
+
             self.node.gr_node.setToolTip("The number of dimensions must be lower than %d"
                                          % self.node.high_data.shape[1])
 

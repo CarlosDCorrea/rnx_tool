@@ -4,7 +4,10 @@ from rnx_node_editor.utils import dump_exception
 from examples.example_calculator.data_class.FileSystemDataRepository import FileSystemRepository
 from examples.example_calculator.data_class.DataClass import Data
 from examples.example_calculator.config.ArtificialDataConfig import TypesConfig
+from examples.example_calculator.views.dialog_window import Dialog
 import os
+
+
 
 
 DEBUG = True
@@ -23,6 +26,7 @@ class ArtificialDataNodeContent(NodeWidgetContent):
         self.current_directory = os.getcwd()
 
         if self.config.status == TypesConfig.Select.value:
+            Dialog("You should load a data set")
             if DEBUG:
                 print("you should load a data set")
 
@@ -67,6 +71,7 @@ class ArtificialDataNodeContent(NodeWidgetContent):
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)
         except Exception as e:
+
             dump_exception(e)
 
 

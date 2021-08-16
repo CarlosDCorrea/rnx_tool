@@ -161,6 +161,11 @@ class RnxNodeRNX(RnxNodeBase):
         self.content = RnxMetricContent(self)
         self.gr_node = NodeBaseGraphicsNode(self)
 
+    def init_settings(self):
+        super().init_settings()
+        self.iinput_multi_edges = True
+
+
     def run(self):
         # self.thread = QThread()
 

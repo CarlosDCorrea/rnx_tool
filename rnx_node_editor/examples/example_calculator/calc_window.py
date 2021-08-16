@@ -191,7 +191,7 @@ class CalcWindow(RnxNodeWindow):
 
     def set_active_sub_window(self, window):
         if window:
-            self.mdi_area.set_active_sub_window(window)
+            self.mdi_area.setActiveSubWindow(window)
 
     def create_actions(self):
         super().create_actions()

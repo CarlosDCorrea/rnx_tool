@@ -5,6 +5,7 @@ class Data:
     def __init__(self, components: ndarray, path: str) -> None:
         self.__components = components
         self.__path = path
+        self.headers = None
 
     def getPath(self) -> str:
         return self.__path

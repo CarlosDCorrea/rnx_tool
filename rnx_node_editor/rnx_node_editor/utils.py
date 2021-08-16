@@ -7,6 +7,7 @@ import traceback
 pp = PrettyPrinter(indent=4).pprint
 
 def dump_exception(e):
+
     print("%s EXCEPTION::" % e.__class__.__name__, e)
     traceback.print_tb(e.__traceback__)
 
