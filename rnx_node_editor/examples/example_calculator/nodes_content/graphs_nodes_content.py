@@ -14,23 +14,30 @@ class GraphsNodesContent(NodeWidgetContent):
         self.layout.addWidget(self.text_points)
         self.layout.addWidget(self.text_dimensions)
 
-    """
-    We can do two different things 
-    1: when d = 3 we use the function for 3 dimensions
-    2: when d < 3 we use the function for 2 or less dimensions
-    """
+    def generate_graph(self, input_node, dimension):
+        """
+        We can do two different things
+        1: d > 3: Not possible
+        2: d == 3: graph_3d
+        3: d <= 2: graph
+        4: d <= 0 Not possible
+        """
+        if dimension > 3:
+            self.node.gr_node.setToolTip("Los datos con más de 3 dimensiones no pueden ser visualizados con este gráfico")
+            self.node.mark_invalid()
+        elif dimension == 3:
+            self.graph_3d(input_node)
+        elif dimension in [1, 2]:
+            self.graph(input_node, dimension) # debería recibir las dimensiones como parámetro
+        else:
+            self.node.gr_node.setToolTip("Error: Dimensión 0 o menor")
 
-    def generate_graph(self, dimension):
-        if dimension == 3:
-            self.graph_3d()
-        elif dimension <= 3:
-            self.graph()
+    def graph_3d(self, input_node):
+        print("1")
+        view_3d(input_node, self.node.data)
 
-    def graph_3d(self):
-        view_3d(self.node.data)
-
-    def graph(self):
-        view(self.node.data)
+    def graph(self, input_node, dimension):
+        view(input_node, dimension, self.node.data)
 
 
 class LineGraphContent(NodeWidgetContent):

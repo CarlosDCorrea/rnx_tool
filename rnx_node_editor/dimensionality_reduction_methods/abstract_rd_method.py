@@ -18,7 +18,6 @@ class RDMethod(ABC):
         self.components = data
 
     def dimension_parameter_is_wrong(self, n_components, X_dimension):
-        print(X_dimension)
         if n_components > X_dimension:
             raise Exception("La dimensión debe ser menor o igual a la dimensión del data set")
 

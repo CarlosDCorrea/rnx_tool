@@ -9,7 +9,7 @@ is that this class is a complement to the node_graphics_node
 which is the graphics part of the nodes, the node_graphics_node module
 contains the node view in the gui, and the node_node module, contains the behavior of node itself
 """
-DEBUG = True
+DEBUG = False
 
 
 class Node(Serializable):
@@ -155,7 +155,8 @@ class Node(Serializable):
         for socket in self.inputs + self.outputs:
             # if socket.has_edge():
             print(f"Los edges del socket:{socket} son {socket.edges}")
-            for edge in socket.edges[0.]:
+            # socket.remove_all_edges()
+            for edge in socket.edges[0:]:
                 if DEBUG: print("Removing from socket", socket, "Edge", edge)
                 edge.remove()
                 print("La lista de edges: ", socket.edges)

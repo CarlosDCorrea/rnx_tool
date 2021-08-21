@@ -3,27 +3,42 @@ from pandas import DataFrame
 from numpy import ndarray
 
 
-def view_3d(X:ndarray):
-    x, y, z = X[:, 0], X[:, 1], X[:, 2]
+def view_3d(node, data):
+    title = node.title
+    if title != "Artificial Data":
+        x, y, z = data['component1'], data['component2'], data['component3']
+    else:
+        x, y, z = data[:, 0], data[:, 1], data[:, 2]
 
-    fig = plt.figure(figsize=(5, 4))
-
+    plt.figure(figsize=(6, 6))
     ax = plt.axes(projection="3d")
-
+    plt.title(title)
+    plt.suptitle("Swiss Roll")
     ax.scatter3D(x, y, z, c=z, cmap="plasma")
-
     plt.show()
 
-def view(X_transformed:DataFrame):
 
-    x, y = X_transformed['component1'], X_transformed['component2']
-
-    fig = plt.figure(figsize=(5, 4))
+def view(node, dimension, data):
+    title = node.title
+    plt.figure(figsize=(5, 4))
     ax = plt.axes()
+    plt.title(title)
 
-    ax.scatter(x, y, c=y, cmap='plasma')
+    if dimension == 2:
+        """
+        Algunas validaciones que se deben tener en cuenta:
+        - se debe preguntar si los datos son reales o artificiales
+            - Si los datos son artificiales se puede usar "component1..."
+            - Si no, se debe traer los labels del data set real
+        - Si los datos son reales se usará rgb para representar dichos puntos, esto aplica
+        para tres dimensiones también
+        """
+        x, y = data['component1'], data['component2']
+        ax.scatter(x, y, c=y, cmap='plasma')
+        plt.xlabel(data.columns[0])
+        plt.ylabel(data.columns[1])
 
-    plt.xlabel(X_transformed.columns[0])
-    plt.ylabel(X_transformed.columns[1])
+    elif dimension == 1:
+        pass
 
     plt.show()

@@ -1,3 +1,4 @@
 NodeWidgetContent { background: transparent }
 QLabel { color: white }
-QMessageBox QLabel{color: black}
+QMessageBox QLabel{color: white}
+QTableWidget {color: white}

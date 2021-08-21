@@ -264,7 +264,7 @@ class RnxNodeScatterPlot(RnxNodeBase):
         self.content.text_points.setText(self.content_labels[0] + str(self.data.shape[0]))
         self.content.text_dimensions.setText(self.content_labels[1] + str(self.data.shape[1]))
 
-        self.content.generate_graph(self.data.shape[1])
+        self.content.generate_graph(input_node, self.data.shape[1])
         self.mark_dirty(False)
         self.mark_invalid(False)
 
