@@ -152,14 +152,12 @@ class Node(Serializable):
     def remove(self):
         if DEBUG: print("Removing node", self)
         if DEBUG: print("Remove edges of the node")
+        if DEBUG: print("Imputs =>",self.inputs, "Outputs => ", self.outputs)
+
         for socket in self.inputs + self.outputs:
             # if socket.has_edge():
-            print(f"Los edges del socket:{socket} son {socket.edges}")
-            # socket.remove_all_edges()
-            for edge in socket.edges[0:]:
-                if DEBUG: print("Removing from socket", socket, "Edge", edge)
-                edge.remove()
-                print("La lista de edges: ", socket.edges)
+            if DEBUG: print(f"Los edges del socket:{socket} son {socket.edges}")
+            socket.remove_all_edges()
 
         if DEBUG: print("Remove gr_scene")
         self.scene.scene.removeItem(self.gr_node)

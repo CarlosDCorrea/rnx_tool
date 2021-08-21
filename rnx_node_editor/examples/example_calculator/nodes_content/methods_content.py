@@ -8,14 +8,13 @@ from dimensionality_reduction_methods.kpca import KPCA
 from dimensionality_reduction_methods.le import LE
 from dimensionality_reduction_methods.isomap import ISOMAP
 from dimensionality_reduction_methods.lle import LLE
-from views.dialog_window import Dialog
 
 class NonParametricMethodsContent(NodeWidgetContent):
 
     def __init__(self, node, config):
         super().__init__(node)
         self.config = config
-
+        self.result = None
 
     def serialize(self):
         res = super().serialize()
@@ -30,13 +29,11 @@ class NonParametricMethodsContent(NodeWidgetContent):
             return True and res
         except Exception as e:
             dump_exception(e)
-        return res
 
-    def reduce_dimensions(self, method):
+    def reduce_dimensions(self, method, data):
         dimensions_value = self.config.d
         self.node.method = method(dimensions_value)
-
-        return self.node.method.spectrum(self.node.high_data)
+        return self.node.method.spectrum(data)
 
     def run(self):
         input_node = self.node.get_input()
@@ -45,9 +42,10 @@ class NonParametricMethodsContent(NodeWidgetContent):
             self.node.mark_invalid()
             return
 
-        self.node.high_data = input_node.get_node_components()
+        high_data = input_node.get_node_components()
 
-        if self.node.high_data is None:
+
+        if high_data is None:
             self.node.gr_node.setToolTip("Input is NaN")
             self.node.mark_invalid()
             return
@@ -55,15 +53,14 @@ class NonParametricMethodsContent(NodeWidgetContent):
         try:
             if self.node.title == 'PCA':
                 print("Executing PCA")
-                self.apply_reduction(PCA)
+                self.apply_reduction(PCA, high_data)
             if self.node.title == 'MDS':
                 print("Executing MDS")
-                self.apply_reduction(MDS)
+                self.apply_reduction(MDS, high_data)
             if self.node.title == 'KPCA':
                 print("Executing KPCA")
-                self.apply_reduction(KPCA)
+                self.apply_reduction(KPCA, high_data)
 
-            return self.node.low_data
         except Exception as e:
             dump_exception(e)
             self.node.mark_invalid()
@@ -71,8 +68,8 @@ class NonParametricMethodsContent(NodeWidgetContent):
             self.node.gr_node.setToolTip("The number of dimensions must be lower than %d"
                                          % self.node.high_data.shape[1])
 
-    def apply_reduction(self, method):
-        self.node.low_data = self.reduce_dimensions(method)
+    def apply_reduction(self, method, data):
+        self.result = self.reduce_dimensions(method, data)
         self.node.mark_invalid(False)
         self.node.mark_dirty(False)
 
@@ -85,12 +82,13 @@ class ParametricMethodsContent(NodeWidgetContent):
     def __init__(self, node, config):
         super().__init__(node)
         self.config = config
+        self.result = None
 
-    def reduce_dimensions(self, method):
+    def reduce_dimensions(self, method, data):
         dimensions_value = self.config.d
         neighbours_value = self.config.n
         self.node.method = method(dimensions_value, neighbours_value)
-        return self.node.method.spectrum(self.node.high_data)
+        return self.node.method.spectrum(data)
 
     def run(self):
 
@@ -100,31 +98,30 @@ class ParametricMethodsContent(NodeWidgetContent):
             self.node.mark_invalid()
             return
 
-        self.node.high_data = input_node.get_node_components()
+        high_data = input_node.get_node_components()
 
-        if self.node.high_data is None:
+        if high_data is None:
             self.node.gr_node.setToolTip("Input is NaN")
             self.node.mark_invalid()
             return
 
         try:
             if self.node.title == 'LE':
-                self.apply_reduction(LE)
+                self.apply_reduction(LE, high_data)
             if self.node.title == 'ISOMAP':
                 print("executing ISOMAP")
-                self.apply_reduction(ISOMAP)
+                self.apply_reduction(ISOMAP, high_data)
             if self.node.title == 'LLE':
-                self.apply_reduction(LLE)
+                self.apply_reduction(LLE, high_data)
 
-            return self.node.low_data
         except Exception as e:
             dump_exception(e)
             self.node.mark_invalid()
             self.node.gr_node.setToolTip("The number of dimensions must be lower than %d"
                                          % self.node.high_data.shape[1])
 
-    def apply_reduction(self, method):
-        self.node.low_data = self.reduce_dimensions(method)
+    def apply_reduction(self, method, data):
+        self.result = self.reduce_dimensions(method, data)
         self.node.mark_invalid(False)
         self.node.mark_dirty(False)
 

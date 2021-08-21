@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QFormLayout, QVBoxLayout
 from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
 from rnx_node_editor.node_widget_node import NodeWidgetContent
-
+from pandas import  DataFrame
 
 class TableOfDataNode(NodeWidgetContent):
 
@@ -13,18 +13,20 @@ class TableOfDataNode(NodeWidgetContent):
 
     def createTable(self, data):
 
-        self.table.setRowCount(data.shape[0])
-        self.table.setColumnCount(data.shape[1])
+        components = data
+        if type(components) == DataFrame:
+            components = components.values
+
+        self.table.setRowCount(components.shape[0])
+        self.table.setColumnCount(components.shape[1])
         self.table.setLayout(QVBoxLayout())
         self.table.clearContents()
-
-        for i in range(data.shape[0]):
-            for j in range(data.shape[1]):
-                self.table.setItem(i, j, QTableWidgetItem(str(data[i, j])))
+        for i in range(components.shape[0]):
+            for j in range(components.shape[1]):
+                self.table.setItem(i, j, QTableWidgetItem(str(components[i, j])))
 
         self.table.move(0, 0)
 
         self.table.show()
-
 
 

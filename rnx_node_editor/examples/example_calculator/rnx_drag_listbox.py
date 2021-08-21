@@ -39,10 +39,10 @@ class DragListWidget(QListWidget):
         self.init_items_listbox(6, 8)
 
     def add_my_items_data(self):
-        self.init_items_listbox(8, 10)
+        self.init_items_listbox(8, 11)
 
     def add_my_items_visuals(self):
-        self.init_items_listbox(10, None)
+        self.init_items_listbox(11, None)
 
     def add_my_item(self, name, icon=None, op_code=0):
         item = QListWidgetItem(name, self)   # can be (icon, text, parent, <int>type)

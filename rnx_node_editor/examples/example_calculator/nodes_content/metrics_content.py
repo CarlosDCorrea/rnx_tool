@@ -23,7 +23,7 @@ class RnxMetricContent(NodeWidgetContent):
 
         for node in input_nodes:
             if node.title in methods_nodes:
-                self.node.method_data = node.low_data
+                self.node.method_data = node.get_node_components()
                 self.node.previous_method = node.title
             else:
                 self.node.high_data = node.get_node_components()

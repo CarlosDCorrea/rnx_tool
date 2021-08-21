@@ -7,9 +7,6 @@ from examples.example_calculator.config.ArtificialDataConfig import TypesConfig
 from examples.example_calculator.views.dialog_window import Dialog
 import os
 
-
-
-
 DEBUG = True
 
 
@@ -37,37 +34,29 @@ class ArtificialDataNodeContent(NodeWidgetContent):
         if self.config.status == TypesConfig.Sphere.value:
             if DEBUG:
                 print("Loading Sphere...")
-
+            self.node.data_name = "Sphere"
             self.load_data("\\data\\esfera.mat", "X")
 
         if self.config.status == TypesConfig.Swiss_Roll.value:
             if DEBUG:
                 print("Loading Swiss Roll...")
 
-            #  Load the data
+            self.node.data_name = "Swiss Roll"
             self.load_data("\\data\\data_swissroll.mat", "X")
 
 
         if self.config.status == TypesConfig.Toroid.value:
             if DEBUG:
                 print("Loading Toroid...")
-
+            self.node.data_name = "Toroid"
             self.load_data("\\data\\toroide.mat", "X")
-
-
-        if hasattr(self.HD, 'getComponents'):
-            self.data_returned = self.HD.getComponents() if self.HD else None
-        else:
-            self.data_returned = self.HD
-
-        print(self.HD)
 
     def get_components(self):
         return self.data_returned
 
     def load_data(self, path, label):
         try:
-            self.HD: Data = self.repo.load(self.current_directory + path, label)
+            self.data_returned = self.repo.load(self.current_directory + path, label)
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)
         except Exception as e:

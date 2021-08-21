@@ -12,6 +12,8 @@ from config.ParametricMethodConfig import ParametricMethodConfigWindow
 from config.NoParametricMethodConfig import NoParametricMethodConfigWindow
 from config.ArtificialDataConfig import ArtificalDataConfigWindow
 from config.RealDataConfig import RealDataConfigWindow
+from config.PartitionerConfig import PartitionerConfigWindow
+from nodes_content.partitioner_content import PartitionerContentNode
 
 DEBUG = True
 
@@ -29,12 +31,14 @@ class RnxNodePCA(RnxNodeBase):
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        self.high_data = None
-        self.low_data = None
-        return self.content.run()
+        self.content.run()
+        print(self.content.result)
 
     def configure(self):
         self.config.show()
+
+    def get_node_components(self):
+        return self.content.result
 
 
 @register_node(OP_NODE_MDS)
@@ -50,12 +54,13 @@ class RnxNodeMDS(RnxNodeBase):
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        self.high_data = None
-        self.low_data = None
         return self.content.run()
 
     def configure(self):
         self.config.exec_()
+
+    def get_node_components(self):
+        return self.content.result
 
 
 @register_node(OP_NODE_KPCA)
@@ -71,12 +76,13 @@ class RnxNodeKPCA(RnxNodeBase):
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        self.high_data = None
-        self.low_data = None
         return self.content.run()
 
     def configure(self):
         self.config.exec_()
+
+    def get_node_components(self):
+        return self.content.result
 
 
 @register_node(OP_NODE_LLE)
@@ -99,6 +105,8 @@ class RnxNodeLLE(RnxNodeBase):
     def configure(self):
         self.config.exec_()
 
+    def get_node_components(self):
+        return self.content.result
 
 @register_node(OP_NODE_LE)
 class RnxNodeLE(RnxNodeBase):
@@ -120,6 +128,9 @@ class RnxNodeLE(RnxNodeBase):
     def configure(self):
         self.config.exec_()
 
+    def get_node_components(self):
+        return self.content.result
+
 @register_node(OP_NODE_ISOMAP)
 class RnxNodeISOMAP(RnxNodeBase):
     icon = "icons/isomap.png"
@@ -133,13 +144,13 @@ class RnxNodeISOMAP(RnxNodeBase):
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        self.high_data = None
-        self.low_data = None
         return self.content.run()
 
     def configure(self):
         self.config.exec_()
 
+    def get_node_components(self):
+        return self.content.result
 
 @register_node(OP_NODE_RNX)
 class RnxNodeRNX(RnxNodeBase):
@@ -200,6 +211,7 @@ class RnxNodeArtificialData(RnxNodeBase):
     icon = "icons/sphere.png"
     op_code = OP_NODE_ARTIFICIAL_DATA
     op_title = "Artificial Data"
+    data_name = None
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[], outputs=[0])
@@ -237,10 +249,44 @@ class RnxNodeRealData(RnxNodeBase):
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        return self.content.run()
+         self.content.run()
+
+
+    def get_node_components(self):
+        value = self.content.get_components()
+        return value
 
     def configure(self):
         self.config.exec_()
+
+@register_node(OP_NODE_PARTITIONER)
+class RnxNodePartitioner(RnxNodeBase):
+    icon = "icons/real_data.png"
+    op_code = OP_NODE_PARTITIONER
+    op_title = "Partitioner"
+
+    def __init__(self, scene):
+        super().__init__(scene, inputs=[0], outputs=[0])
+
+    def init_inner_classes(self):
+        self.config = PartitionerConfigWindow(self)
+        self.content = PartitionerContentNode(self, self.config)
+        self.config.addObserver(self.content)
+        self.gr_node = NodeBaseGraphicsNode(self)
+
+
+    def run(self):
+         self.content.run()
+
+    def configure(self):
+        headers = list(self.get_input().get_node_components().columns.values)
+        self.config.addItems(headers)
+        self.config.exec_()
+
+    def get_node_components(self):
+        value = self.content.get_components()
+        return value
+
 
 
 @register_node(OP_NODE_SCATTER_PLOT)
@@ -260,7 +306,7 @@ class RnxNodeScatterPlot(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
-        self.data = input_node.get_node_components() if input_node.title == "Artificial Data" else input_node.low_data
+        self.data = input_node.get_node_components()
         self.content.text_points.setText(self.content_labels[0] + str(self.data.shape[0]))
         self.content.text_dimensions.setText(self.content_labels[1] + str(self.data.shape[1]))
 
@@ -313,6 +359,7 @@ class RnxNodeDataTable(RnxNodeBase):
         input_node = self.get_input()
         data = input_node.get_node_components()
         self.content.createTable(data)
+
 
 
 class WorkerThread(QRunnable):

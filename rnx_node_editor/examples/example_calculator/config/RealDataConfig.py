@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import  QDialog, QVBoxLayout, QPushButton, QFileDialog, QLabel, QHBoxLayout
 
+
 class RealDataConfigWindow(QDialog):
 
     def __init__(self, node, parent = None):
@@ -38,7 +39,7 @@ class RealDataConfigWindow(QDialog):
         try:
             file_names, _ = QFileDialog.getOpenFileNames(self, "Open file")
             self.title.setText(file_names[0].split('/')[-1])
-            self.path = file_names
+            self.path = file_names[0]
             self.extention = self.title.text().split(".")[-1]
 
         except():
