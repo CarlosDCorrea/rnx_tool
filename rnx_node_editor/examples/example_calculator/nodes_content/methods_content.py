@@ -74,7 +74,7 @@ class NonParametricMethodsContent(NodeWidgetContent):
         self.node.mark_dirty(False)
 
     def update(self):
-        self.node.mark_dirty(True)
+        self.node.mark_dirty()
 
 
 class ParametricMethodsContent(NodeWidgetContent):

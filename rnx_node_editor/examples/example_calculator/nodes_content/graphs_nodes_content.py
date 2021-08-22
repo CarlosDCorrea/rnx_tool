@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QLabel, QHBoxLayout
 from rnx_node_editor.node_widget_node import NodeWidgetContent
 from examples.example_calculator.views.scatter_plot import *
-from examples.example_calculator.views.line_plot import line_chat
+from examples.example_calculator.views.line_plot import line_chart
 
 
 class GraphsNodesContent(NodeWidgetContent):
@@ -51,4 +51,4 @@ class LineGraphContent(NodeWidgetContent):
         self.layout.addWidget(self.text_rnx)
 
     def generate_line_chart(self, node):
-        return line_chat(node)
+        return line_chart(node)

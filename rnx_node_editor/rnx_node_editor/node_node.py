@@ -253,16 +253,24 @@ class Node(Serializable):
             return None
 
     def get_inputs(self):
-        other_nodes = []
+        methods_nodes = []
+        high_data_node = []
         try:
             for socket in self.inputs:
-                if socket.edges:
-                    edge = socket.edges[0]
-                    other_socket = edge.get_other_socket(socket)
-                    other_nodes.append(other_socket.node)
-                else:
-                    print("There is not edges connected")
-            return other_nodes
+                if socket == self.inputs[0]:  # methods
+                    for edge in socket.edges:
+                        other_socket = edge.get_other_socket(socket)
+                        methods_nodes.append(other_socket.node)
+                    else:
+                        print("There is not edges connected in methods socket")
+                elif socket == self.inputs[-1]:  # High Data
+                    for edge in socket.edges:
+                        other_socket = edge.get_other_socket(socket)
+                        high_data_node.append(other_socket.node)
+                    else:
+                        print("There is not edges connected in methods socket")
+
+            return [methods_nodes, high_data_node]
         except Exception as e:
             dump_exception(e)
 

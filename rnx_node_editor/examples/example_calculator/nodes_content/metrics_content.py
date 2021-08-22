@@ -13,31 +13,36 @@ class RnxMetricContent(NodeWidgetContent):
         self.layout.addRow(self.text_method, self.text_rnx)
 
     def run(self):
-        input_nodes = self.node.get_inputs()
-        if not input_nodes or len(input_nodes) == 1:
+        input_nodes = self.node.get_inputs()  # it give us a list of two lists
+        # method_descriptor = {'title': '', 'components': [], 'score': 0.0, 'rnx': []}
+        if not input_nodes[0] and not input_nodes[1]:
             self.node.gr_node.setToolTip("There are missing inputs")
             self.node.mark_invalid()
             return
 
-        methods_nodes = ['PCA', 'MDS', 'KPCA', 'LE', 'LLE', 'ISOMAP']
+        for node in input_nodes[-1]:
+            self.node.high_data = node.get_node_components()
 
-        for node in input_nodes:
-            if node.title in methods_nodes:
-                self.node.method_data = node.get_node_components()
-                self.node.previous_method = node.title
-            else:
-                self.node.high_data = node.get_node_components()
-
-        if self.node.high_data is None or self.node.method_data is None:
-            self.node.gr_node.setToolTip("Input is NaN")
-            self.node.mark_invalid()
-            return
+        # if self.node.high_data is None or self.node.method_data is None:
+        #     self.node.gr_node.setToolTip("Input is NaN")
+        #     self.node.mark_invalid()
+        #     return
 
         try:
-            self.rnx = ScoreRnx(self.node.high_data, self.node.method_data)
-            self.rnx.run()
-            self.node.score = self.rnx.get_rnx()[0]
-            self.node.rnx = self.rnx.get_rnx()[1]
+            for node in input_nodes[0]:
+                print("El nodo a ser evaluado es::", node)
+                self.rnx = ScoreRnx(self.node.high_data, node.get_node_components())
+                self.rnx.run()
+                self.node.score = self.rnx.get_rnx()[0]
+                self.node.rnx = self.rnx.get_rnx()[1]
+                # method_descriptor['title'] = node.title
+                # method_descriptor['components'] = node.get_node_components()
+                # method_descriptor['score'] = self.node.score
+                # method_descriptor['rnx'] = self.node.rnx
+                # print("Diccionario a punto de ser agregado::", method_descriptor)
+                self.node.methods_dict_output.append({'title':node.title, 'components': node.get_node_components(),
+                                                      'score': self.node.score, 'rnx': self.node.rnx})
+
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)
         except Exception as e:

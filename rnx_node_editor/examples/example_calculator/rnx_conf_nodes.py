@@ -163,10 +163,10 @@ class RnxNodeRNX(RnxNodeBase):
     def __init__(self, scene):
         super().__init__(scene, inputs=[1, 0], outputs=[2])
         self.high_data = None
-        self.method_data = None
         self.score = None
         self.rnx = None
-        self.previous_method = None
+        self.methods_dict_output = []  # this list contains methods dicts
+
 
     def init_inner_classes(self):
         self.content = RnxMetricContent(self)
@@ -341,12 +341,12 @@ class RnxNodeLineChart(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
-        self.y = input_node.rnx
-        self.score = input_node.score
-        self.previous_method_name = input_node.previous_method
-
-        self.content.text_rnx.setText(self.content_labels[1] + str(self.score))
-        self.content.generate_line_chart(self)
+        # self.y = input_node.rnx
+        # self.score = input_node.score
+        # self.previous_method_name = input_node.previous_method
+        #
+        # self.content.text_rnx.setText(self.content_labels[1] + str(self.score))
+        self.content.generate_line_chart(input_node.methods_dict_output)
         self.mark_dirty(False)
         self.mark_invalid(False)
 
@@ -381,5 +381,7 @@ class WorkerThread(QRunnable):
 
     def run(self) -> None:
         self.node.content.run()
+        # print("Rnx ejecutado...")
+        # print("Esta es la lista de diccionarios::", self.node.methods_dict_output)
 
 
