@@ -72,6 +72,8 @@ class RnxNodeBase(Node):
         return res
 
 
+
+
 class NodeContent(NodeWidgetContent):
     """The nodes are inheriting from it do not delete"""
     pass

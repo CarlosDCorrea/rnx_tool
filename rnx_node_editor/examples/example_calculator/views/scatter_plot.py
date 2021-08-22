@@ -5,10 +5,7 @@ from numpy import ndarray
 
 def view_3d(node, data):
     title = node.title
-    if title != "Artificial Data":
-        x, y, z = data['component1'], data['component2'], data['component3']
-    else:
-        x, y, z = data[:, 0], data[:, 1], data[:, 2]
+    x, y, z = data['component1'], data['component2'], data['component3']
 
     plt.figure(figsize=(6, 6))
     ax = plt.axes(projection="3d")

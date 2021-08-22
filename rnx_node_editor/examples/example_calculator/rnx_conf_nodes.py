@@ -279,7 +279,15 @@ class RnxNodePartitioner(RnxNodeBase):
          self.content.run()
 
     def configure(self):
-        headers = list(self.get_input().get_node_components().columns.values)
+
+        input_node = self.get_input()
+
+        if not input_node:
+            self.gr_node.setToolTip("There are missing inputs")
+            self.mark_invalid()
+            return
+
+        headers = list(input_node.get_node_components().columns.values)
         self.config.addItems(headers)
         self.config.exec_()
 
@@ -306,6 +314,7 @@ class RnxNodeScatterPlot(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
+        print(input_node.get_node_components())
         self.data = input_node.get_node_components()
         self.content.text_points.setText(self.content_labels[0] + str(self.data.shape[0]))
         self.content.text_dimensions.setText(self.content_labels[1] + str(self.data.shape[1]))
