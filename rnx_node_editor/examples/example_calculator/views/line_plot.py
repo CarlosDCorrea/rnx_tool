@@ -3,6 +3,7 @@ import numpy as np
 import random
 
 def line_chart(methods_list_descriptor):
+
     markers = ['.', '>', 'o']
     bottom, top = 0, 100
     for data_method in methods_list_descriptor:

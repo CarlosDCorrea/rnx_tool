@@ -1,5 +1,4 @@
-from PyQt5.QtWidgets import QFormLayout, QVBoxLayout
-from PyQt5.QtWidgets import QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QFormLayout, QVBoxLayout, QTableWidget, QTableWidgetItem
 from rnx_node_editor.node_widget_node import NodeWidgetContent
 from pandas import  DataFrame
 
@@ -14,9 +13,13 @@ class TableOfDataNode(NodeWidgetContent):
     def createTable(self, data):
 
         components = data
+        labels = list(components.columns)
         if type(components) == DataFrame:
             components = components.values
 
+        self.table.setHorizontalHeaderItem(0, QTableWidgetItem(str(labels[0])))
+        self.table.setHorizontalHeaderItem(1, QTableWidgetItem(str(labels[1])))
+        self.table.setHorizontalHeaderItem(2, QTableWidgetItem(str(labels[2])))
         self.table.setRowCount(components.shape[0])
         self.table.setColumnCount(components.shape[1])
         self.table.setLayout(QVBoxLayout())

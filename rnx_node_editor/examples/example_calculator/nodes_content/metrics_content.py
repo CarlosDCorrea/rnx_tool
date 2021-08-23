@@ -23,6 +23,12 @@ class RnxMetricContent(NodeWidgetContent):
         for node in input_nodes[-1]:
             self.node.high_data = node.get_node_components()
 
+        for node in input_nodes[0] + input_nodes[-1]:
+            if node.is_invalid or node.is_dirty:
+                self.node.mark_invalid()
+                self.node.gr_node.setToolTip("Puede que uno o más de los nodos conectados, no esté ejecutado")
+                return
+
         # if self.node.high_data is None or self.node.method_data is None:
         #     self.node.gr_node.setToolTip("Input is NaN")
         #     self.node.mark_invalid()
@@ -30,18 +36,13 @@ class RnxMetricContent(NodeWidgetContent):
 
         try:
             for node in input_nodes[0]:
-                print("El nodo a ser evaluado es::", node)
                 self.rnx = ScoreRnx(self.node.high_data, node.get_node_components())
                 self.rnx.run()
                 self.node.score = self.rnx.get_rnx()[0]
                 self.node.rnx = self.rnx.get_rnx()[1]
-                # method_descriptor['title'] = node.title
-                # method_descriptor['components'] = node.get_node_components()
-                # method_descriptor['score'] = self.node.score
-                # method_descriptor['rnx'] = self.node.rnx
-                # print("Diccionario a punto de ser agregado::", method_descriptor)
-                self.node.methods_dict_output.append({'title':node.title, 'components': node.get_node_components(),
-                                                      'score': self.node.score, 'rnx': self.node.rnx})
+                self.node.methods_dict_output.append({'title': node.title,
+                                                      'score': self.node.score,
+                                                      'rnx': self.node.rnx})
 
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)

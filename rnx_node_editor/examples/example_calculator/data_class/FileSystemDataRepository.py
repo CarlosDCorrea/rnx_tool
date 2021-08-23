@@ -1,23 +1,28 @@
-from scipy.io import  loadmat, savemat
+from scipy.io import loadmat, savemat
 from .DataClass import Data
 from pandas import read_csv, read_excel, DataFrame
+import os
 
 
 class FileSystemRepository:
 
-    def load(self, path, label = "ans") -> Data:
+    def load(self, path) -> Data:
 
-        extention = self.getExtention(path)
+        extention = os.path.splitext(path)[1]
         data = None
         try:
-            if extention == "mat":
-                data = loadmat(path)[label]
-                data = DataFrame(data, columns=["component1", "component2", "component3"])
+            if extention == ".mat":
+                raw_data = loadmat(path)
+                data_key = list(raw_data.keys())[-1]
+                data = raw_data[data_key]
+                dimensions = data.shape[1]
+                cols = self.column_generator(dimensions)
+                data = DataFrame(data, columns=cols)
 
-            if extention == "csv":
+            if extention == ".csv":
                 data = read_csv(path)
 
-            if extention == "xlsx":
+            if extention == ".xlsx":
                 data = read_excel(path)
 
             return data
@@ -32,5 +37,5 @@ class FileSystemRepository:
         else:
             savemat(path, {label: X})
 
-    def getExtention(self, path:str):
-        return path.split(".")[-1]
+    def column_generator(self, d):
+        return ['component' + str(i) for i in range(1, d + 1)]
