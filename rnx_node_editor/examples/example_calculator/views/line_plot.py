@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import random
 
+
 def line_chart(methods_list_descriptor):
 
     markers = ['.', '>', 'o']
@@ -19,3 +20,6 @@ def line_chart(methods_list_descriptor):
 
     plt.legend(loc='lower center', shadow=True, fontsize='x-large')
     plt.show()
+
+
+

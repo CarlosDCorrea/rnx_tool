@@ -17,9 +17,6 @@ class TableOfDataNode(NodeWidgetContent):
         if type(components) == DataFrame:
             components = components.values
 
-        self.table.setHorizontalHeaderItem(0, QTableWidgetItem(str(labels[0])))
-        self.table.setHorizontalHeaderItem(1, QTableWidgetItem(str(labels[1])))
-        self.table.setHorizontalHeaderItem(2, QTableWidgetItem(str(labels[2])))
         self.table.setRowCount(components.shape[0])
         self.table.setColumnCount(components.shape[1])
         self.table.setLayout(QVBoxLayout())
@@ -27,6 +24,11 @@ class TableOfDataNode(NodeWidgetContent):
         for i in range(components.shape[0]):
             for j in range(components.shape[1]):
                 self.table.setItem(i, j, QTableWidgetItem(str(components[i, j])))
+
+        x = 0
+        for i in labels:
+            self.table.setHorizontalHeaderItem(x, QTableWidgetItem(str(i)))
+            x = x+1
 
         self.table.move(0, 0)
 

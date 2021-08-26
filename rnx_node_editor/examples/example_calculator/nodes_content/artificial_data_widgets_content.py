@@ -23,7 +23,6 @@ class ArtificialDataNodeContent(NodeWidgetContent):
         self.current_directory = os.getcwd()
 
         if self.config.status == TypesConfig.Select.value:
-            Dialog("You should load a data set")
             if DEBUG:
                 print("you should load a data set")
 
