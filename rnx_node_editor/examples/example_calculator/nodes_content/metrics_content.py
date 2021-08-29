@@ -24,6 +24,9 @@ class RnxMetricContent(NodeWidgetContent):
         if self.nodes_are_not_ready_yet(input_nodes):
             return
 
+        self.node.mark_invalid(False)
+        self.node.mark_dirty()
+        self.node.gr_node.setToolTip("Nodo ejecutandose...")
 
         for node in input_nodes[-1]: # last element in input_nodes, is a array with one RnxNodeBase object
             self.node.high_data = node.get_node_components()
@@ -41,10 +44,10 @@ class RnxMetricContent(NodeWidgetContent):
 
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)
+            self.node.gr_node.setToolTip("")
         except Exception as e:
             dump_exception(e)
             self.node.mark_invalid()
-
 
     def connections_are_not_available(self, input_nodes):
         flag = False

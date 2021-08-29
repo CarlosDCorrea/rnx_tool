@@ -1,4 +1,4 @@
 NodeWidgetContent { background: transparent }
 QLabel { color: white }
 QMessageBox QLabel{color: white}
-QTableWidget {color: white}
+QTableWidget QHeaderView, QTableWidget {color: white; font-size: 16px;}

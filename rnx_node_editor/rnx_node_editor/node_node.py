@@ -35,6 +35,8 @@ class Node(Serializable):
         self._is_dirty = False
         self._is_invalid = False
 
+        self.is_configurable = True
+
 
     def init_inner_classes(self):
         self.content = NodeWidgetContent(self)  # init of widgets node

@@ -25,12 +25,16 @@ class GraphsNodesContent(NodeWidgetContent):
         if dimension > 3:
             self.node.gr_node.setToolTip("Los datos con más de 3 dimensiones no pueden ser visualizados con este gráfico")
             self.node.mark_invalid()
+            return False
         elif dimension == 3:
             self.graph_3d(input_node)
+            return True
         elif dimension in [1, 2]:
             self.graph(input_node, dimension) # debería recibir las dimensiones como parámetro
+            return True
         else:
             self.node.gr_node.setToolTip("Error: Dimensión 0 o menor")
+            return False
 
     def graph_3d(self, input_node):
         print("1")

@@ -118,8 +118,8 @@ class RnxSubWindow(RnxNodeEditorWidget):
         #  my form
 
         context_menu_node = QMenu()
-        run_act = context_menu_node.addAction("Run")
-        setting = context_menu_node.addAction("Configurations")
+        run_act = context_menu_node.addAction("Ejecutar")
+        setting = context_menu_node.addAction("Configurar")
         action = context_menu_node.exec_(self.mapToGlobal(event.pos()))
 
         selected = None
@@ -143,7 +143,13 @@ class RnxSubWindow(RnxNodeEditorWidget):
             selected.run()
 
         if selected and action == setting:
-            selected.configure()
+            if not selected.is_configurable:
+                selected.mark_invalid()
+                selected.gr_node.setToolTip("Este nodo no es configuable")
+            else:
+                selected.mark_dirty()
+                selected.gr_node.setToolTip("")
+                selected.configure()
 
 
 

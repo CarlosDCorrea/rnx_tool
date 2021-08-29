@@ -7,7 +7,7 @@ from nodes_content.real_data_widget_content import RealDataNodeContent
 from nodes_content.metrics_content import RnxMetricContent
 from nodes_content.table_of_data import TableOfDataNode
 from nodes_content.graphs_nodes_content import *
-from PyQt5.QtCore import QRunnable, QThreadPool
+from PyQt5.QtCore import QThread
 from config.ParametricMethodConfig import ParametricMethodConfigWindow
 from config.NoParametricMethodConfig import NoParametricMethodConfigWindow
 from config.ArtificialDataConfig import ArtificalDataConfigWindow
@@ -165,6 +165,7 @@ class RnxNodeRNX(RnxNodeBase):
         self.high_data = None
         self.score = None
         self.rnx = None
+        self.is_configurable = False
         self.methods_dict_output = []  # this list contains methods dicts
 
 
@@ -178,20 +179,19 @@ class RnxNodeRNX(RnxNodeBase):
 
 
     def run(self):
-        # self.thread = QThread()
+        self.thread = MyThread(self)
+        self.thread.finished.connect(self.is_runned)
+        self.thread.start()
 
-        worker = WorkerThread(self)
-
-        # self.worker.moveToThread(self.thread)
-
-        # self.thread.started.connect(self.worker.run)
-        # self.worker.finished.connect(self.thread.quit)
-        # self.worker.finished.connect(self.worker.deleteLater)
-        # self.thread.finished.connect(self.thread.deleteLater)
-
-        # self.thread.start()
-        self.thread_pool = QThreadPool()
-        self.thread_pool.start(worker)
+    def is_runned(self, x_pos):
+        """
+        When the independent thread finished, the paint method of the node
+        is not called, therefore the new state is not visible, to address it,
+        we update the pos node once the new thread is finished,
+        this calls the paint method and repaint the node
+        with the new state of the node.
+        """
+        self.set_pos(self.get_pos().x() + x_pos, self.get_pos().y())
 
 
 @register_node(OP_NODE_LDA)
@@ -257,6 +257,8 @@ class RnxNodeRealData(RnxNodeBase):
         return value
 
     def configure(self):
+        separators = [',', ';', '/']
+        self.config.addSeparators(separators)
         self.config.exec_()
 
 @register_node(OP_NODE_PARTITIONER)
@@ -319,9 +321,12 @@ class RnxNodeScatterPlot(RnxNodeBase):
         self.content.text_points.setText(self.content_labels[0] + str(self.data.shape[0]))
         self.content.text_dimensions.setText(self.content_labels[1] + str(self.data.shape[1]))
 
-        self.content.generate_graph(input_node, self.data.shape[1])
-        self.mark_dirty(False)
-        self.mark_invalid(False)
+        if not self.content.generate_graph(input_node, self.data.shape[1]):
+            return
+        else:
+            self.mark_dirty(False)
+            self.mark_invalid(False)
+
 
 
 @register_node(OP_NODE_LINE_CHART)
@@ -371,9 +376,8 @@ class RnxNodeDataTable(RnxNodeBase):
 
 
 
-class WorkerThread(QRunnable):
-    finished = pyqtSignal()
-    progress = pyqtSignal(int)
+class MyThread(QThread):
+    finished = pyqtSignal(float)
 
     def __init__(self, node):
         super().__init__()
@@ -381,7 +385,6 @@ class WorkerThread(QRunnable):
 
     def run(self) -> None:
         self.node.content.run()
-        # print("Rnx ejecutado...")
-        # print("Esta es la lista de diccionarios::", self.node.methods_dict_output)
+        self.finished.emit(0.1)
 
 

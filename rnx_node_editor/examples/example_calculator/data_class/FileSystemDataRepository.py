@@ -6,7 +6,7 @@ import os
 
 class FileSystemRepository:
 
-    def load(self, path) -> Data:
+    def load(self, path, separator=None) -> Data:
 
         extention = os.path.splitext(path)[1]
         data = None
@@ -20,7 +20,7 @@ class FileSystemRepository:
                 data = DataFrame(data, columns=cols)
 
             if extention == ".csv":
-                data = read_csv(path)
+                data = read_csv(path, sep=separator)
 
             if extention == ".xlsx":
                 data = read_excel(path)

@@ -18,7 +18,7 @@ class RealDataNodeContent(NodeWidgetContent):
         if self.is_not_a_valid_file(self.config.extention):
             return
         try:
-            self.data_returned = self.repo.load(self.config.path)
+            self.data_returned = self.repo.load(self.config.path, self.config.separator)
             self.node.mark_invalid(False)
             self.node.mark_dirty(False)
         except Exception as e:
