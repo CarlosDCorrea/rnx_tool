@@ -6,7 +6,7 @@ import os
 
 class FileSystemRepository:
 
-    def load(self, path, separator=None) -> Data:
+    def load(self, path, separator=None) -> DataFrame:
 
         extention = os.path.splitext(path)[1]
         data = None

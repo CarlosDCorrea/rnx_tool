@@ -30,7 +30,7 @@ class RealDataNodeContent(NodeWidgetContent):
 
     def update(self):
         self.data_returned = None
-        self.node.markdirty(True)
+        self.node.mark_dirty(True)
 
     def is_not_a_valid_file(self, extention):
         flag = False

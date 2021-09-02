@@ -66,8 +66,8 @@ class RealDataConfigWindow(QDialog):
     def saveEvt(self):
         if self.path == None:
             return
-
         self.separator = self.options.currentText()
+        self.notifyAllObservers()
         self.close()
 
     def cancelEvt(self):
