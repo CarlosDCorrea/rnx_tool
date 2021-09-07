@@ -1,10 +1,8 @@
-import time
 from typing import Any
 import numpy as np
 from numpy import ndarray
 from timeit import default_timer as timer
 from rnx_node_editor.utils import dump_exception
-import concurrent.futures
 
 
 DEBUG = False
@@ -42,6 +40,7 @@ class ScoreRnx:
 
         except Exception as e:
             print(e)
+            #lanzar una excepcion
 
     def get_rnx(self):
         return [self.__score, self.__curve]
@@ -50,6 +49,8 @@ class ScoreRnx:
         try:
 
             nbr = len(HD)
+
+            # Crear matrices de distancias para datos en alta y baja dimension
 
             start = timer()
             DX = self.pairwisedistances(HD)
@@ -63,11 +64,16 @@ class ScoreRnx:
                 print(f"DYt process =>, {timer() - start:0.4f} sec")
             del start
 
+            # Crear la matriz de coranking con las matrices de distancias
+            #   Nota: Tener encuenta que , coranking(DX, DYt) es diferente a    coranking(DYt, DX)
+
+
             start = timer()
             co = self.coranking(DX, DYt)
             if DEBUG:
                 print(f"CO process =>, {timer() - start:0.4f} sec")
             del start
+
 
             start = timer()
             [n, x, p, b] = self.nx_trusion(co)
@@ -95,13 +101,10 @@ class ScoreRnx:
 
     def pairwisedistances(self, X: np.ndarray):
 
-
         g = np.dot(X, np.transpose(X))
-
         di = np.diag(g)
-
-        d = np.transpose(np.subtract(di, g))
-        matrix_squared = (d + np.transpose(d))**2
+        d = np.transpose(np.subtract(di, g ))
+        matrix_squared = (d + np.transpose(d))
         try:
             result = np.sqrt(matrix_squared)
             return result
@@ -116,37 +119,43 @@ class ScoreRnx:
             nbr = HD.shape[0]
             sss = HD.shape[1]
 
-            ndx1 = np.transpose(np.argsort(HD, axis=1))
-            ndx2 = np.transpose(np.argsort(LD, axis=1))
 
-            ndx4 = np.zeros((nbr, sss), dtype=np.uint32)
+            ndx1 = np.transpose(np.argsort(HD+1, axis=1))
+            ndx2 = np.transpose(np.argsort(LD+1, axis=1))
 
-            range_nbr = range(nbr)
-
+            ndx1 = ndx1+1
+            ndx2 = ndx2+1
+            ndx4 = np.zeros((nbr+1, sss+1), dtype=np.uint32)
             start = timer()
-            counter2 = 0
+
+            nbr_range = range(nbr)
+
             for j in range(sss):
-                counter2 += 1
-                ndx4[ndx2[range_nbr, j], j] = range_nbr
+                ndx4[ndx2[nbr_range, j], j] = nbr_range
+
+            ndx4 = ndx4 + 1
+
 
             print(f"FIRST O(N^2) process =>, {timer() - start:0.4f} sec")
 
             del ndx2
 
-            c = np.zeros((nbr, sss), dtype=np.uint32)
+            c = np.zeros((nbr+1, sss+1), dtype=np.uint32)
 
             start = timer()
-            counter = 0
+
             for j in range(sss):
-                h = ndx4[ndx1[range_nbr, j], j]
-                c[range_nbr, h] += nbr
+                h = ndx4[ndx1[nbr_range, j], j]
+                c[nbr_range, h] = c[nbr_range, h] + 1
+
 
             print(f"SECOND O(N^2) process =>, {timer() - start:0.4f} sec")
             del ndx1, ndx4
 
             c = np.delete(c, 0, axis=0)
             c = np.delete(c, 0, axis=1)
-
+            c = np.delete(c,0, axis = 1)
+            c = np.delete(c, -1, axis = 0)
             return c
 
         except Exception as e:
@@ -160,13 +169,11 @@ class ScoreRnx:
 
         try:
             size = c.shape
-
+            print(size)
             if size[0] != size[1]:
                 return
-
             nmo = size[0]
             sss = np.sum(c, axis=1)
-
             sss = sss[0]
 
             v1 = np.arange(1, nmo + 1)
