@@ -10,3 +10,5 @@ class Serializable:
         if dictionary is None:
             dictionary = {}
         raise NotImplemented()
+
+

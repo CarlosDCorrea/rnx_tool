@@ -5,10 +5,10 @@ from pandas import DataFrame
 
 class RDMethod(ABC):
 
-    def __init__(self, n_components, name, n_neighbours=None):
-        self.n_components = n_components
+    def __init__(self, n_components: int, name: str, n_neighbours=None):
+        self.n_components: int = n_components
         self.n_neighbours = n_neighbours
-        self.name = name
+        self.name: str = name
         self.components = []
 
     def get_name(self):

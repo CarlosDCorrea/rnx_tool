@@ -16,20 +16,20 @@ class RealDataConfigWindow(QDialog):
         self.extention = None
         self.separator = None
         self.setFixedSize(300, 200)
-        self.setWindowTitle("Configuration of node: " + node.op_title)
+        self.setWindowTitle("Configuración de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
         self.layout = QVBoxLayout()
         self.separators_section = QHBoxLayout()
-        self.button = QPushButton("Open File")
+        self.button = QPushButton("Abrir archivo.")
         self.button.clicked.connect(self.openfile)
-        self.title = QLabel("-")
+        self.title = QLabel("Selecciona un archivo.")
         self.options = QComboBox()
 
         self.optionsLayout = QHBoxLayout()
         self.save = QPushButton("Ok")
-        self.cancel = QPushButton("Cancel")
+        self.cancel = QPushButton("Cancelar")
 
         self.optionsLayout.addWidget(self.save)
         self.optionsLayout.addWidget(self.cancel)
@@ -54,7 +54,7 @@ class RealDataConfigWindow(QDialog):
 
     def openfile(self):
         try:
-            file_names, _ = QFileDialog.getOpenFileNames(self, "Open file")
+            file_names, _ = QFileDialog.getOpenFileNames(self, "Abrir archivo")
             if file_names:
                 self.title.setText(file_names[0].split('/')[-1])
                 self.path = file_names[0]
@@ -67,6 +67,7 @@ class RealDataConfigWindow(QDialog):
         if self.path == None:
             return
         self.separator = self.options.currentText()
+        print(self.separator)
         self.notifyAllObservers()
         self.close()
 

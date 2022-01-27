@@ -12,14 +12,6 @@ class RnxMetricContent(NodeWidgetContent):
         self.nodes_current_executed: [] = []
 
 
-
-    def init_ui(self):
-        self.layout = QFormLayout()
-        self.setLayout(self.layout)
-        self.text_method = QLabel(self.node.content_labels[0])
-        self.text_rnx = QLabel(self.node.content_labels[1])
-        self.layout.addRow(self.text_method, self.text_rnx)
-
     # it give us a list of two lists
     # method_descriptor = {'title': '', 'components': [], 'score': 0.0, 'rnx': []}
 

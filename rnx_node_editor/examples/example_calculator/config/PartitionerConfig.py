@@ -9,7 +9,7 @@ class PartitionerConfigWindow(QDialog):
         self.observers = []
         self.column = None
         self.setFixedSize(300, 200)
-        self.setWindowTitle("Configuration of node: " + node.op_title)
+        self.setWindowTitle("Configuración  de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
@@ -19,11 +19,11 @@ class PartitionerConfigWindow(QDialog):
         # def combo box
         self.options = QComboBox()
 
-        dataLabel.addWidget(QLabel("Columns"))
+        dataLabel.addWidget(QLabel("Columna"))
         dataLabel.addWidget(self.options)
 
         self.save = QPushButton("Ok", self)
-        self.cancel = QPushButton("Cancel", self)
+        self.cancel = QPushButton("Cancelar", self)
 
         optionsLabel.addWidget(self.save)
         optionsLabel.addWidget(self.cancel)
@@ -40,7 +40,7 @@ class PartitionerConfigWindow(QDialog):
 
     def addItems(self, headers):
         self.options.clear()
-        self.options.addItem("Select")
+        self.options.addItem("Seleccionar")
         for item in headers:
             self.options.addItem(item)
 

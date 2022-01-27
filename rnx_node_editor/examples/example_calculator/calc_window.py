@@ -19,10 +19,11 @@ DEBUG = False
 
 class CalcWindow(RnxNodeWindow):
 
+
     def init_ui(self):
         self.name_company = "Universidad_Cesmag"
         self.name_product = "Rnx_Node_Editor"
-
+        super()
         self.stylesheet_filename = os.path.join(os.path.dirname(__file__), "qss/node_style.qss")
         load_style_sheet(
             os.path.join(os.path.dirname(__file__), "qss/nodeeditor-dark.qss"),
@@ -57,7 +58,8 @@ class CalcWindow(RnxNodeWindow):
 
         self.read_settings()
 
-        self.setWindowTitle("Calculator node editor example")
+        self.setWindowTitle("QARNX")
+        self.setWindowIcon(QIcon("icons/rnx.png"))
 
     def get_current_rnx_node_editor_widget(self):
         active_sub_window = self.mdi_area.activeSubWindow()
@@ -74,16 +76,16 @@ class CalcWindow(RnxNodeWindow):
 
         self.list_widget_visuals = DragListWidget(4)
 
-        self.items_methods = QDockWidget("Methods")
+        self.items_methods = QDockWidget("Métodos")
         self.items_methods.setWidget(self.list_widget_methods)
         self.items_methods.setFloating(False)
-        self.items_metrics = QDockWidget("Metrics")
+        self.items_metrics = QDockWidget("Métricas")
         self.items_metrics.setWidget(self.list_widget_metrics)
         self.items_metrics.setFloating(False)
-        self.items_data = QDockWidget("Data")
+        self.items_data = QDockWidget("Datos")
         self.items_data.setWidget(self.list_widget_data)
         self.items_data.setFloating(False)
-        self.items_visuals = QDockWidget("Visuals")
+        self.items_visuals = QDockWidget("Visualizaciones")
         self.items_visuals.setWidget(self.list_widget_visuals)
         self.items_visuals.setFloating(False)
 
@@ -106,13 +108,13 @@ class CalcWindow(RnxNodeWindow):
     def create_menus(self):
         super().create_menus()
 
-        self.window_menu = self.menuBar().addMenu("&Window")
+        self.window_menu = self.menuBar().addMenu("&Ventana")
         self.update_window_menu()
         self.window_menu.aboutToShow.connect(self.update_window_menu)
 
         self.menuBar().addSeparator()
 
-        self.helpMenu = self.menuBar().addMenu("&Help")
+        self.helpMenu = self.menuBar().addMenu("&Ayuda")
         self.helpMenu.addAction(self.aboutAct)
 
         self.edit_menu.aboutToShow.connect(self.update_edit_menu)

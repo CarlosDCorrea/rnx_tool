@@ -10,16 +10,15 @@ def view_3d(node, data):
     plt.figure(figsize=(6, 6))
     ax = plt.axes(projection="3d")
     plt.title(title)
-    plt.suptitle("Swiss Roll")
     ax.scatter3D(x, y, z, c=z, cmap="plasma")
     plt.show()
 
 
-def view(node, dimension, data):
-    title = node.title
+def view( dimension, data):
+    #title = node.title
     plt.figure(figsize=(5, 4))
     ax = plt.axes()
-    plt.title(title)
+   # plt.title(title)
 
     if dimension == 2:
         """

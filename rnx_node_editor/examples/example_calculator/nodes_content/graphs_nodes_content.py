@@ -5,14 +5,7 @@ from examples.example_calculator.views.line_plot import line_chart
 
 
 class GraphsNodesContent(NodeWidgetContent):
-    def init_ui(self):
-        self.layout = QHBoxLayout()
-        self.setLayout(self.layout)
-        self.text_points = QLabel(self.node.content_labels[0])
-        self.text_dimensions = QLabel(self.node.content_labels[1])
 
-        self.layout.addWidget(self.text_points)
-        self.layout.addWidget(self.text_dimensions)
 
     def generate_graph(self, input_node, dimension):
         """
@@ -45,14 +38,6 @@ class GraphsNodesContent(NodeWidgetContent):
 
 
 class LineGraphContent(NodeWidgetContent):
-    def init_ui(self):
-        self.layout = QHBoxLayout()
-        self.setLayout(self.layout)
-        self.text_method = QLabel(self.node.content_labels[0])
-        self.text_rnx = QLabel(self.node.content_labels[1])
-
-        self.layout.addWidget(self.text_method)
-        self.layout.addWidget(self.text_rnx)
 
     def generate_line_chart(self, node):
         return line_chart(node)

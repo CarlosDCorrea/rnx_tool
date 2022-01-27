@@ -1,7 +1,9 @@
+from PyQt5 import QtGui
 from PyQt5.QtWidgets import QMainWindow, QAction, QFileDialog, QLabel, QApplication, QMessageBox
 from PyQt5.QtGui import QCloseEvent
 from PyQt5.QtCore import QSettings, QPoint, QSize
 from .rnx_ne_widget import RnxNodeEditorWidget
+
 import json
 import os
 
@@ -11,7 +13,7 @@ class RnxNodeWindow(QMainWindow):
         super().__init__()
         self.name_company = "Universidad_Cesmag"
         self.name_product = "Node_Editor"
-
+        self.setWindowIcon(QtGui.QIcon('../examples/example_calculator/icons/rnx.png'))
         self.status_mouse_pos = None
         self.init_ui()
 
@@ -40,11 +42,11 @@ class RnxNodeWindow(QMainWindow):
         self.show()
 
     def create_actions(self):
-        self.act_new = QAction('New', self, shortcut='Ctrl+N', statusTip='Create new project', triggered=self.on_file_new)
-        self.act_open = QAction('Open', self, shortcut='Ctrl+O', statusTip='Open file', triggered=self.on_file_open)
-        self.act_save = QAction('Save', self, shortcut='Ctrl+S', statusTip='Save project', triggered=self.on_file_save)
-        self.act_save_as = QAction('Save As...', self, shortcut='Ctrl+Shift+S', statusTip='Save project as...', triggered=self.on_file_save_as)
-        self.act_exit = QAction('Exit', self, shortcut='Ctrl+Q', statusTip='Exit', triggered=self.close_app)
+        self.act_new = QAction('Nuevo', self, shortcut='Ctrl+N', statusTip='Create new project', triggered=self.on_file_new)
+        self.act_open = QAction('Abrir', self, shortcut='Ctrl+O', statusTip='Open file', triggered=self.on_file_open)
+        self.act_save = QAction('Guardar', self, shortcut='Ctrl+S', statusTip='Save project', triggered=self.on_file_save)
+        self.act_save_as = QAction('Guardar como...', self, shortcut='Ctrl+Shift+S', statusTip='Save project as...', triggered=self.on_file_save_as)
+        self.act_exit = QAction('Salir', self, shortcut='Ctrl+Q', statusTip='Exit', triggered=self.close_app)
         self.act_undo = QAction('Undo', self, shortcut='Ctrl+Z', statusTip='Undo last', triggered=self.on_edit_undo)
         self.act_redo = QAction('Redo', self, shortcut='Ctrl+Y', statusTip='Redo last', triggered=self.on_edit_redo)
         self.act_cut = QAction('Cut', self, shortcut='Ctrl+X', statusTip='Cut to clipboard', triggered=self.on_edit_cut)
@@ -55,7 +57,7 @@ class RnxNodeWindow(QMainWindow):
     def create_menus(self):
         menu_bar = self.menuBar()
 
-        self.file_menu = menu_bar.addMenu("File")
+        self.file_menu = menu_bar.addMenu("Archivo")
 
         self.file_menu.addAction(self.act_new)
         self.file_menu.addSeparator()
@@ -65,7 +67,7 @@ class RnxNodeWindow(QMainWindow):
         self.file_menu.addSeparator()
         self.file_menu.addAction(self.act_exit)
 
-        self.edit_menu = menu_bar.addMenu("Edit")
+        self.edit_menu = menu_bar.addMenu("Editar")
         self.edit_menu.addAction(self.act_undo)
         self.edit_menu.addAction(self.act_redo)
         self.edit_menu.addSeparator()

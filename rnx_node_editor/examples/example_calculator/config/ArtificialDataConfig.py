@@ -8,7 +8,7 @@ class ArtificalDataConfigWindow(QDialog):
         self.observers =[]
         self.status = 0
         self.setFixedSize(300, 200)
-        self.setWindowTitle("Configuration of node: " + node.op_title)
+        self.setWindowTitle("Configuración de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
@@ -18,16 +18,16 @@ class ArtificalDataConfigWindow(QDialog):
         optionsLabel = QHBoxLayout()
         # def combo box
         self.options = QComboBox()
-        self.options.addItem("Select")
-        self.options.addItem("Sphere")
-        self.options.addItem("Swiss Roll")
-        self.options.addItem("Toroid")
+        self.options.addItem("Seleccionar")
+        self.options.addItem("Esfera")
+        self.options.addItem("Rollo Suizo")
+        self.options.addItem("Toroide")
 
-        dataLabel.addWidget(QLabel("Data"))
+        dataLabel.addWidget(QLabel("Datos"))
         dataLabel.addWidget(self.options)
 
         self.save = QPushButton("Ok", self)
-        self.cancel = QPushButton("Cancel", self)
+        self.cancel = QPushButton("Cancelar", self)
 
 
         optionsLabel.addWidget(self.save)

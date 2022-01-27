@@ -13,7 +13,7 @@ class KPCA(RDMethod):
 
         super().dimension_parameter_is_wrong(self.n_components, X.shape[1])
 
-        transformer = KernelPCA(n_components=self.n_components, kernel='linear')
+        transformer = KernelPCA(n_components=self.n_components, kernel='sigmoid')
         X_transformed = transformer.fit_transform(X)
 
         return super().data_frame(X_transformed)

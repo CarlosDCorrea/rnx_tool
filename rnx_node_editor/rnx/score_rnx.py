@@ -3,12 +3,13 @@ import numpy as np
 from numpy import ndarray
 from timeit import default_timer as timer
 from rnx_node_editor.utils import dump_exception
+from pandas import DataFrame
 
 
 DEBUG = False
 
 
-class CorankingException(Exception):
+class Coranking Exception(Exception):
     def __init__(self, message, *args):
         super(CorankingException, self).__init__(message, *args)
 
@@ -63,7 +64,6 @@ class ScoreRnx:
             if DEBUG:
                 print(f"DYt process =>, {timer() - start:0.4f} sec")
             del start
-
             # Crear la matriz de coranking con las matrices de distancias
             #   Nota: Tener encuenta que , coranking(DX, DYt) es diferente a    coranking(DYt, DX)
 
@@ -77,7 +77,7 @@ class ScoreRnx:
 
             start = timer()
             [n, x, p, b] = self.nx_trusion(co)
-            # x => intrusiones, n => extrusiones, b => base aleatoria, p =>
+            # n => intrusiones, x => extrusiones, b => base aleatoria, p => tasa de rangos perfectamente conservados
             print(f"TRUSION process =>, {timer() - start:0.4f} sec")
             del start
 
@@ -101,12 +101,21 @@ class ScoreRnx:
 
     def pairwisedistances(self, X: np.ndarray):
 
+        X = np.array(X, dtype=np.float64)
+
         g = np.dot(X, np.transpose(X))
+        print("G =>", np.sum(np.sum(g)))
+
         di = np.diag(g)
+        print("DI =>", np.sum(np.sum(di)))
         d = np.transpose(np.subtract(di, g ))
+        print("D =>", np.sum(np.sum(d)))
         matrix_squared = (d + np.transpose(d))
+        print("MS =>", np.sum(np.sum(matrix_squared)))
         try:
-            result = np.sqrt(matrix_squared)
+
+            result = np.sqrt(abs(matrix_squared))
+
             return result
         except Exception as e:
             dump_exception(e)
@@ -123,8 +132,10 @@ class ScoreRnx:
             ndx1 = np.transpose(np.argsort(HD+1, axis=1))
             ndx2 = np.transpose(np.argsort(LD+1, axis=1))
 
-            ndx1 = ndx1+1
-            ndx2 = ndx2+1
+            ndx1 = ndx1 + 1
+            ndx2 = ndx2 + 1
+
+
             ndx4 = np.zeros((nbr+1, sss+1), dtype=np.uint32)
             start = timer()
 

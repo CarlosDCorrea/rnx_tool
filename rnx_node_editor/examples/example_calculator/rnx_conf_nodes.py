@@ -157,8 +157,6 @@ class RnxNodeRNX(RnxNodeBase):
     icon = ""
     op_code = OP_NODE_RNX
     op_title = "RNX"
-    content_labels = ["Method:", "RNX:"]
-    content_label_obj_names = ["rnx_node_method", "rnx_node_rnx"]
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[1, 0], outputs=[2])
@@ -194,23 +192,11 @@ class RnxNodeRNX(RnxNodeBase):
         self.set_pos(self.get_pos().x() + x_pos, self.get_pos().y())
 
 
-@register_node(OP_NODE_LDA)
-class RnxNodeLDA(RnxNodeBase):
-    icon = ""
-    op_code = OP_NODE_LDA
-    op_title = "LDA"
-    content_labels = ["", ""]
-    content_label_obj_names = ["", ""]
-
-    def __init__(self, scene):
-        super().__init__(scene, inputs=[1], outputs=[2])
-
-
 @register_node(OP_NODE_ARTIFICIAL_DATA)
 class RnxNodeArtificialData(RnxNodeBase):
     icon = "icons/sphere.png"
     op_code = OP_NODE_ARTIFICIAL_DATA
-    op_title = "Artificial Data"
+    op_title = "Datos Artificiales"
     data_name = None
 
     def __init__(self, scene):
@@ -237,7 +223,7 @@ class RnxNodeArtificialData(RnxNodeBase):
 class RnxNodeRealData(RnxNodeBase):
     icon = "icons/real_data.png"
     op_code = OP_NODE_REAL_DATA
-    op_title = "Real Data"
+    op_title = "Datos"
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[], outputs=[0])
@@ -265,7 +251,7 @@ class RnxNodeRealData(RnxNodeBase):
 class RnxNodePartitioner(RnxNodeBase):
     icon = "icons/real_data.png"
     op_code = OP_NODE_PARTITIONER
-    op_title = "Partitioner"
+    op_title = "Particionador"
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[0], outputs=[0])
@@ -304,8 +290,6 @@ class RnxNodeScatterPlot(RnxNodeBase):
     icon = "icons/Scatter-plot.png"
     op_code = OP_NODE_SCATTER_PLOT
     op_title = "Scatter Plot"
-    content_labels = ["points: ", "dimensions: "]
-    content_label_obj_names = ["rnx_node_points", ""]
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[2], outputs=[])
@@ -316,11 +300,7 @@ class RnxNodeScatterPlot(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
-        print(input_node.get_node_components())
         self.data = input_node.get_node_components()
-        self.content.text_points.setText(self.content_labels[0] + str(self.data.shape[0]))
-        self.content.text_dimensions.setText(self.content_labels[1] + str(self.data.shape[1]))
-
         if not self.content.generate_graph(input_node, self.data.shape[1]):
             return
         else:
@@ -334,8 +314,6 @@ class RnxNodeLineChart(RnxNodeBase):
     icon = "icons/line-chart.png"
     op_code = OP_NODE_LINE_CHART
     op_title = "Line Chart"
-    content_labels = ["method: ", "Score: "]
-    content_label_obj_names = ["rnx_node_method", ""]
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[2], outputs=[])
@@ -360,7 +338,7 @@ class RnxNodeLineChart(RnxNodeBase):
 class RnxNodeDataTable(RnxNodeBase):
     icon = "icons/real_data.png"
     op_code = OP_NODE_DATA_TABLE
-    op_title = "Data Table"
+    op_title = "Tabla de datos"
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[1], outputs=[])

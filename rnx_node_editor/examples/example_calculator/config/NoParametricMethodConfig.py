@@ -9,7 +9,7 @@ class NoParametricMethodConfigWindow(QDialog):
         self.observers = []
         self.d = 3
         self.setFixedSize(300, 200)
-        self.setWindowTitle("Configuration of node: " + node.op_title)
+        self.setWindowTitle("Configuración  de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
@@ -19,13 +19,13 @@ class NoParametricMethodConfigWindow(QDialog):
         self.dimensionLayout = QHBoxLayout()
         self.edit_text_dimensions = QLineEdit("3")
         self.edit_text_dimensions.setValidator(QIntValidator(1,100))
-        self.dimensionLayout.addWidget(QLabel("Dimensions"))
+        self.dimensionLayout.addWidget(QLabel("Dimensiones"))
         self.dimensionLayout.addWidget(self.edit_text_dimensions)
 
         # Options
         self.optionsLayout = QHBoxLayout()
         self.save = QPushButton("Ok", self)
-        self.cancel = QPushButton("Cancel", self)
+        self.cancel = QPushButton("Cancelar", self)
         self.optionsLayout.addWidget(self.save)
         self.optionsLayout.addWidget(self.cancel)
 
