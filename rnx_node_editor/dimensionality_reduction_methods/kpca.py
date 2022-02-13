@@ -10,10 +10,9 @@ class KPCA(RDMethod):
         super().__init__(n_components, "KPCA")
 
     def spectrum(self, X:ndarray) -> DataFrame:
-
         super().dimension_parameter_is_wrong(self.n_components, X.shape[1])
 
-        transformer = KernelPCA(n_components=self.n_components, kernel='sigmoid')
+        transformer = KernelPCA(n_components=self.n_components, kernel="cosine")
         X_transformed = transformer.fit_transform(X)
 
         return super().data_frame(X_transformed)

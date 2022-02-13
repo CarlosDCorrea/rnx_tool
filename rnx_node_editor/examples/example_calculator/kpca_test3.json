@@ -1,0 +1,85 @@
+{
+    "id": 1943846795536,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 1943849047808,
+            "title": "KPCA",
+            "pos_x": 115.0,
+            "pos_y": -177.0,
+            "inputs": [
+                {
+                    "id": 1943849119120,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1943849119168,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 6
+        },
+        {
+            "id": 1943849047856,
+            "title": "Datos Artificiales",
+            "pos_x": -164.0,
+            "pos_y": -5.0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1943849153488,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1943849154160,
+            "title": "Scatter Plot",
+            "pos_x": 424.0,
+            "pos_y": -21.0,
+            "inputs": [
+                {
+                    "id": 1943849154352,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        }
+    ],
+    "edges": [
+        {
+            "id": 1943849154112,
+            "edge_type": 2,
+            "start": 1943849153488,
+            "end": 1943849119120
+        },
+        {
+            "id": 1943685134752,
+            "edge_type": 2,
+            "start": 1943849119168,
+            "end": 1943849154352
+        }
+    ]
+}

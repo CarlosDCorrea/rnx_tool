@@ -4,7 +4,6 @@ from pandas import DataFrame
 
 
 class RDMethod(ABC):
-
     def __init__(self, n_components: int, name: str, n_neighbours=None):
         self.n_components: int = n_components
         self.n_neighbours = n_neighbours
@@ -22,9 +21,7 @@ class RDMethod(ABC):
             raise Exception("La dimensión debe ser menor o igual a la dimensión del data set")
 
     def data_frame(self, X_transformed: ndarray) -> DataFrame:
-
         data = {}
-
         cols = ['component' + str(i) for i in range(1, self.n_components + 1)]
 
         for i in range(len(cols)):

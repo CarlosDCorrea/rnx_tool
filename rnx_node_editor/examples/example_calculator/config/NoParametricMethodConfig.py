@@ -1,14 +1,19 @@
-from PyQt5.QtWidgets import  QDialog, QVBoxLayout, QHBoxLayout,QPushButton, QComboBox, QLabel, QFormLayout, QLineEdit
+from PyQt5.QtWidgets import (
+    QDialog,
+    QVBoxLayout,
+    QFormLayout,
+    QPushButton,
+    QLabel,
+    QLineEdit)
 from PyQt5.QtGui import QIntValidator
 from PyQt5.QtCore import Qt
 
 class NoParametricMethodConfigWindow(QDialog):
 
-    def __init__(self, node, parent = None):
+    def __init__(self, node, parent=None):
         super().__init__(parent)
         self.observers = []
         self.d = 3
-        self.setFixedSize(300, 200)
         self.setWindowTitle("Configuración  de nodo: " + node.op_title)
         self.init_ui()
 
@@ -16,27 +21,24 @@ class NoParametricMethodConfigWindow(QDialog):
         self.layout = QVBoxLayout()
 
         # Dimension
-        self.dimensionLayout = QHBoxLayout()
+        self.dimension_layout = QFormLayout()
         self.edit_text_dimensions = QLineEdit("3")
-        self.edit_text_dimensions.setValidator(QIntValidator(1,100))
-        self.dimensionLayout.addWidget(QLabel("Dimensiones"))
-        self.dimensionLayout.addWidget(self.edit_text_dimensions)
+        self.edit_text_dimensions.setValidator(QIntValidator(1, 100))
+        self.dimension_layout.addRow(QLabel("Dimensiones"), self.edit_text_dimensions)
 
         # Options
-        self.optionsLayout = QHBoxLayout()
+        self.actions_layout = QFormLayout()
         self.save = QPushButton("Ok", self)
         self.cancel = QPushButton("Cancelar", self)
-        self.optionsLayout.addWidget(self.save)
-        self.optionsLayout.addWidget(self.cancel)
+        self.actions_layout.addRow(self.save, self.cancel)
 
         self.save.clicked.connect(self.saveEvt)
         self.cancel.clicked.connect(self.cancelEvt)
 
-        self.layout.addLayout(self.dimensionLayout)
-        self.layout.addLayout(self.optionsLayout)
+        self.layout.addLayout(self.dimension_layout)
+        self.layout.addLayout(self.actions_layout)
 
         self.setLayout(self.layout)
-        self.setFixedSize(300, 200)
 
         self.setWindowModality(Qt.ApplicationModal)
 

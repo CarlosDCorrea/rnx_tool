@@ -9,7 +9,7 @@ from pandas import DataFrame
 DEBUG = False
 
 
-class Coranking Exception(Exception):
+class CorankingException(Exception):
     def __init__(self, message, *args):
         super(CorankingException, self).__init__(message, *args)
 
@@ -32,9 +32,7 @@ class ScoreRnx:
         self.__curve = Any
 
     def run(self):
-
         try:
-
             [Ravg, R_NX] = self.nx_scores(self.__data, self.__method)
             self.__score = Ravg
             self.__curve = R_NX
@@ -48,11 +46,8 @@ class ScoreRnx:
 
     def nx_scores(self, HD: np.ndarray, LD: np.ndarray):
         try:
-
             nbr = len(HD)
-
             # Crear matrices de distancias para datos en alta y baja dimension
-
             start = timer()
             DX = self.pairwisedistances(HD)
             if DEBUG:
@@ -67,13 +62,11 @@ class ScoreRnx:
             # Crear la matriz de coranking con las matrices de distancias
             #   Nota: Tener encuenta que , coranking(DX, DYt) es diferente a    coranking(DYt, DX)
 
-
             start = timer()
             co = self.coranking(DX, DYt)
             if DEBUG:
                 print(f"CO process =>, {timer() - start:0.4f} sec")
             del start
-
 
             start = timer()
             [n, x, p, b] = self.nx_trusion(co)
@@ -100,7 +93,6 @@ class ScoreRnx:
             raise e
 
     def pairwisedistances(self, X: np.ndarray):
-
         X = np.array(X, dtype=np.float64)
 
         g = np.dot(X, np.transpose(X))
@@ -128,13 +120,11 @@ class ScoreRnx:
             nbr = HD.shape[0]
             sss = HD.shape[1]
 
-
             ndx1 = np.transpose(np.argsort(HD+1, axis=1))
             ndx2 = np.transpose(np.argsort(LD+1, axis=1))
 
             ndx1 = ndx1 + 1
             ndx2 = ndx2 + 1
-
 
             ndx4 = np.zeros((nbr+1, sss+1), dtype=np.uint32)
             start = timer()
@@ -145,7 +135,6 @@ class ScoreRnx:
                 ndx4[ndx2[nbr_range, j], j] = nbr_range
 
             ndx4 = ndx4 + 1
-
 
             print(f"FIRST O(N^2) process =>, {timer() - start:0.4f} sec")
 
@@ -158,7 +147,6 @@ class ScoreRnx:
             for j in range(sss):
                 h = ndx4[ndx1[nbr_range, j], j]
                 c[nbr_range, h] = c[nbr_range, h] + 1
-
 
             print(f"SECOND O(N^2) process =>, {timer() - start:0.4f} sec")
             del ndx1, ndx4
@@ -177,7 +165,6 @@ class ScoreRnx:
         pass
 
     def nx_trusion(self, c: np.ndarray):
-
         try:
             size = c.shape
             print(size)

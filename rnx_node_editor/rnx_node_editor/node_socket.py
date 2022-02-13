@@ -54,16 +54,11 @@ class Socket(Serializable):
             edge = self.edges.pop(0)
             edge.remove()
 
-        # self.edges.clear()
-
     def remove_edge(self, edge):
         if edge in self.edges:
             self.edges.remove(edge)
         else:
             print("The edge", edge, "you are trying to remove from socket", self, "is not in the list")
-
-    # def has_edge(self):
-    #    return self.edges
 
     def determine_multi_edges(self, data):
         if 'multi_edges' in data:

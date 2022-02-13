@@ -18,8 +18,6 @@ DEBUG = False
 
 
 class CalcWindow(RnxNodeWindow):
-
-
     def init_ui(self):
         self.name_company = "Universidad_Cesmag"
         self.name_product = "Rnx_Node_Editor"
@@ -116,6 +114,12 @@ class CalcWindow(RnxNodeWindow):
 
         self.helpMenu = self.menuBar().addMenu("&Ayuda")
         self.helpMenu.addAction(self.aboutAct)
+        self.helpMenu.addAction(self.act_separator)
+        self.helpMenu.addAction(self.drag_node_act)
+        self.helpMenu.addAction(self.move_nodes_act)
+        self.helpMenu.addAction(self.connect_nodes_act)
+        self.helpMenu.addAction(self.configure_nodes_act)
+        self.helpMenu.addAction(self.execute_nodes_act)
 
         self.edit_menu.aboutToShow.connect(self.update_edit_menu)
 
@@ -225,9 +229,29 @@ class CalcWindow(RnxNodeWindow):
         self.act_separator = QAction(self)
         self.act_separator.setSeparator(True)
 
-        self.aboutAct = QAction("&About", self,
-                                statusTip="Show the application's About box",
+        self.aboutAct = QAction("&Acerca de", self,
+                                statusTip="Mostrar acerca de",
                                 triggered=self.about)
+
+        self.drag_node_act = QAction("&Arrastrar Nodos", self,
+                                     statusTip="Cómo arrastrar los nodos al workflow",
+                                     triggered=self.drag_node)
+
+        self.move_nodes_act = QAction("&Mover Nodos", self,
+                                      statusTip="¿Cómo mover los nodos?",
+                                      triggered=self.move_node)
+
+        self.connect_nodes_act = QAction("&Conectar Nodos", self,
+                                         statusTip="¿Cómo conectar nodos?",
+                                         triggered=self.connect_node)
+
+        self.execute_nodes_act = QAction("&Ejecutar nodos", self,
+                                         statusTip="¿Cómo ejecutar los nodos?",
+                                         triggered=self.execute_node)
+
+        self.configure_nodes_act = QAction("&Configurar Nodos", self,
+                                           statusTip="¿Cómo configurar los nodos?",
+                                           triggered=self.configure_node)
 
     def on_file_new(self):
         sub_window = self.create_mdi_child()
@@ -255,9 +279,40 @@ class CalcWindow(RnxNodeWindow):
             print(e)
 
     def about(self):
-        QMessageBox.about(self, "About MDI",
-                          "The <b>MDI</b> example demonstrates how to write multiple "
-                          "document interface applications using Qt.")
+        QMessageBox.about(self, "Acerca de QARNX",
+                          "<b>QARNX</b> es una herramienta para la evaluación topológica de métodos de reducción de dimensión "
+                          "que integra varios métodos RD provenientes de sklearn e implementa las métricas RNX "
+                          "propuestas por John Lee y Michel Verleysen, puede encontrar el código fuente <a style='color: #0A2906' href='https://github.com/CarlosDCorrea/rnx_tool/tree/master'>aquí</a>"
+                          )
+
+    def drag_node(self):
+        QMessageBox.about(self, "Arrastrar nodos",
+                          "De clic sobre cualquier nodo del menú lateral derecho y con el clic sostenido<b>Arrastre</b>"
+                          "el nodo hasta el workflow"
+                          )
+
+    def move_node(self):
+        QMessageBox.about(self, "Mover nodos",
+                          "Haga click sobre el nodo que quiere mover y con el click sostenido comience a <b>Mover</b> el ratón"
+                          )
+
+    def connect_node(self):
+        QMessageBox.about(self, "Conectar nodos",
+                          "Realice un click sostenido sobre el socket del nodo <b>(circulo de color ubicado en los laterales del nodo)</b>"
+                          "mueva el ratón hasta el socket destino"
+                          "<b>Nota:</b> los colores de los sockets indican relación, por lo que sockets outputs azules, deberían ir con sockets input azules"
+                          )
+
+    def configure_node(self):
+        QMessageBox.about(self, "Configuración de nodos",
+                          "Algunos nodos requieren ser <b>Configurados</b> antes de su ejecución, para ello, de click derecho sobre el nodo y seguidamente en 'configurar'"
+                          "dependiendo del nodo le aparecerá una configuración u otra."
+                          )
+
+    def execute_node(self):
+        QMessageBox.about(self, "Ejecución de nodos",
+                          "Para <b>Ejecutar</b> cualquier nodo, debe dar click derecho y seguidamente en ejecutar, una vez ejecutado el nodo, verá el ícono de aceptación en la esquina superior izquierda"
+                          )
 
     def create_tool_bars(self):
         pass

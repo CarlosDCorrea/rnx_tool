@@ -1,4 +1,10 @@
-from PyQt5.QtWidgets import  QDialog, QVBoxLayout, QHBoxLayout,QPushButton, QComboBox, QLabel, QFormLayout, QLineEdit
+from PyQt5.QtWidgets import (
+    QDialog,
+    QVBoxLayout,
+    QFormLayout,
+    QPushButton,
+    QLabel,
+    QLineEdit)
 from PyQt5.QtGui import QIntValidator
 from PyQt5.QtCore import Qt
 
@@ -9,7 +15,6 @@ class ParametricMethodConfigWindow(QDialog):
         self.observers = []
         self.d = 3
         self.n = 10
-        self.setFixedSize(300, 200)
         self.setWindowTitle("Configuración  de nodo: " + node.op_title)
         self.init_ui()
 
@@ -17,35 +22,31 @@ class ParametricMethodConfigWindow(QDialog):
         self.layout = QVBoxLayout()
 
         # Dimension
-        self.dimensionLayout = QHBoxLayout()
+        self.dimensionLayout = QFormLayout()
         self.edit_text_dimensions = QLineEdit("3")
-        self.edit_text_dimensions.setValidator(QIntValidator(1,100))
-        self.dimensionLayout.addWidget(QLabel("Dimensiones"))
-        self.dimensionLayout.addWidget(self.edit_text_dimensions)
+        self.edit_text_dimensions.setValidator(QIntValidator(1, 100))
+        self.dimensionLayout.addRow(QLabel("Dimensiones"), self.edit_text_dimensions)
 
         # Neighbours
-        self.neighboursLayout = QHBoxLayout()
+        self.neighboursLayout = QFormLayout()
         self.edit_text_neighbours = QLineEdit("10")
-        self.edit_text_neighbours.setValidator(QIntValidator(1,100))
-        self.neighboursLayout.addWidget(QLabel("Vecinos"))
-        self.neighboursLayout.addWidget(self.edit_text_neighbours)
+        self.edit_text_neighbours.setValidator(QIntValidator(1, 100))
+        self.dimensionLayout.addRow(QLabel("Vecindarios"), self.edit_text_neighbours)
 
         # Options
-        self.optionsLayout = QHBoxLayout()
+        self.actions_layout = QFormLayout()
         self.save = QPushButton("Ok", self)
         self.cancel = QPushButton("Cancelar", self)
-        self.optionsLayout.addWidget(self.save)
-        self.optionsLayout.addWidget(self.cancel)
+        self.actions_layout.addRow(self.save, self.cancel)
 
         self.save.clicked.connect(self.saveEvt)
         self.cancel.clicked.connect(self.cancelEvt)
 
         self.layout.addLayout(self.dimensionLayout)
         self.layout.addLayout(self.neighboursLayout)
-        self.layout.addLayout(self.optionsLayout)
+        self.layout.addLayout(self.actions_layout)
 
         self.setLayout(self.layout)
-        self.setFixedSize(300, 200)
 
         self.setWindowModality(Qt.ApplicationModal)
 

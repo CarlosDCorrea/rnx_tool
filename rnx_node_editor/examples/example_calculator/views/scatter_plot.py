@@ -14,7 +14,7 @@ def view_3d(node, data):
     plt.show()
 
 
-def view( dimension, data):
+def view(dimension, data):
     #title = node.title
     plt.figure(figsize=(5, 4))
     ax = plt.axes()

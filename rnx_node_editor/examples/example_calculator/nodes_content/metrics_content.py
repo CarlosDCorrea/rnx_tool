@@ -4,22 +4,17 @@ from rnx.score_rnx import ScoreRnx
 from rnx_node_editor.utils import dump_exception
 from timeit import default_timer as timer
 
+
 class RnxMetricContent(NodeWidgetContent):
-    
     def __init__(self, node):
         super().__init__(node)
         self.node.methods_dict_output = []
         self.nodes_current_executed: [] = []
 
-
-    # it give us a list of two lists
-    # method_descriptor = {'title': '', 'components': [], 'score': 0.0, 'rnx': []}
-
     def run(self):
-
         print(self.nodes_current_executed)
 
-        inputs = [ method_nodes, data_node ] = self.node.get_inputs() # this function return  a array with two arrays in it
+        inputs = [method_nodes, data_node] = self.node.get_inputs()
 
         if self.connections_are_not_available(inputs):
             return
@@ -31,16 +26,15 @@ class RnxMetricContent(NodeWidgetContent):
         self.node.mark_dirty()
         self.node.gr_node.setToolTip("Nodo ejecutandose...")
 
-        for node in data_node: # is a array with one data RnxNodeBase object
+        for node in data_node: # blue sockets that represents the high_data
             self.node.high_data = node.get_node_components()
 
         # Esta variable representa los nodos que se van a ejecutar
         nodes = None
 
         # si ya hay evaluaciones de nodos listas, extraer nodos que no han sido ejecutados previamente
-        if  not self.is_empty(self.nodes_current_executed):
+        if not self.is_empty(self.nodes_current_executed):
             nodes = self.extract_nodes(self.nodes_current_executed, method_nodes)
-
         else:
             nodes = method_nodes
 
@@ -56,25 +50,22 @@ class RnxMetricContent(NodeWidgetContent):
 
         self.execute_nodes(nodes)
 
-        # actualizar lista de los nodos ejecutados
         self.update_current_list(self.createListId(method_nodes))
-        #actualizar dicionario
         self.update_dict_output()
 
 
     def connections_are_not_available(self, input_nodes):
         flag = False
         if not input_nodes[0] or not input_nodes[-1]:
-            self.node.gr_node.setToolTip("There are missing inputs")
+            self.node.gr_node.setToolTip("Hay conexiones faltantes")
             self.node.mark_invalid()
             flag = True
-
-        return  flag
+        return flag
 
     def nodes_are_not_ready_yet(self, input_nodes):
         flag = False
         for node in input_nodes[0] + input_nodes[-1]:
-            print("Node =>",node, " Is invalid =>", node.is_invalid(), "Is dirty =>",node.is_dirty())
+            print("Node =>",node, " Is invalid =>", node.is_invalid(), "Is dirty =>", node.is_dirty())
 
             if node.is_invalid() or node.is_dirty():
                 self.node.mark_invalid()
@@ -83,7 +74,6 @@ class RnxMetricContent(NodeWidgetContent):
         return flag
 
     def execute_nodes(self, input_nodes):
-
         try:
             for node in input_nodes:
                 self.rnx = ScoreRnx(self.node.high_data, node.get_node_components())
@@ -93,9 +83,10 @@ class RnxMetricContent(NodeWidgetContent):
                 self.node.score = self.rnx.get_rnx()[0]
                 self.node.rnx = self.rnx.get_rnx()[1]
                 self.node.methods_dict_output.append({'id': id(node),
-                                                'title': node.title,
-                                              'score': self.node.score,
-                                              'rnx': self.node.rnx})
+                                                      'title': node.title,
+                                                      'score': self.node.score,
+                                                      'rnx': self.node.rnx,
+                                                       'state': 'EJECUTADO'})
                 #añadir id de nodos ejecutados en este ciclo
 
                 self.node.mark_invalid(False)
@@ -107,19 +98,17 @@ class RnxMetricContent(NodeWidgetContent):
             self.node.mark_invalid()
 
     def extract_nodes(self, nodes_executed, input_nodes):
-
         extract = []
 
-        for i in input_nodes:
-            if not self.element_in_list(id(i), nodes_executed):
-                extract.append(i)
+        for node in input_nodes:
+            if not self.element_in_list(id(node), nodes_executed):
+                extract.append(node)
+        return extract
 
-        return  extract
-
-    def element_in_list(self, e, list):
+    def element_in_list(self, id_node, nodes_executed):
         flag = False
-        for i in list:
-            if i == e:
+        for id_node_in_list in nodes_executed:
+            if id_node_in_list == id_node:
                 flag = True
         return flag
 

@@ -5,7 +5,6 @@ from sklearn.manifold import Isomap
 
 
 class ISOMAP(RDMethod):
-
     def __init__(self, n_components, n_neighbours):
         super().__init__(n_components, "ISOMAP", n_neighbours)
 

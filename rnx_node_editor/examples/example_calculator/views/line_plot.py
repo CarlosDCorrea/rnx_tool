@@ -4,7 +4,6 @@ import random
 
 
 def line_chart(methods_list_descriptor):
-
     markers = ['.', '>', 'o']
     bottom, top = 0, 100
 

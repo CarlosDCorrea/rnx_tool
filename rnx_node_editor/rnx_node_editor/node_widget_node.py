@@ -32,7 +32,6 @@ class NodeWidgetContent(QWidget, Serializable):
 
 
 class MyQLineEdit(QLineEdit):
-
     def focusInEvent(self, event: QFocusEvent) -> None:
         self.parentWidget().set_editing_flag(True)
         super().focusInEvent(event)

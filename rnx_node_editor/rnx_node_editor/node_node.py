@@ -95,7 +95,6 @@ class Node(Serializable):
         print("%s:: onEdgeInputChanged" % self.__class__.__name__, new_edge + "node_name:", self.title)
         self.mark_descendents_dirty()
 
-
     def __str__(self):
         return "<Node %s>..%s>" % (hex(id(self))[2:5], hex(id(self))[-3:])
             
@@ -145,7 +144,6 @@ class Node(Serializable):
     
     def update_connection_edges(self):
         for socket in self.inputs + self.outputs:
-            # if socket.has_edge():
             for edge in socket.edges:
                 edge.update_pos()
             else:
@@ -276,13 +274,6 @@ class Node(Serializable):
         except Exception as e:
             dump_exception(e)
 
-        """ins = []
-        for edge in self.inputs[index].edges:
-            other_socket = edge.get_other_socket(self.inputs[index])
-            ins.append(other_socket.node)
-        return ins 
-        """
-
     def get_outputs(self, index=0):
         outs = []
         for edge in self.outputs[index].edges:
@@ -290,11 +281,8 @@ class Node(Serializable):
             outs.append(other_socket.node)
         return outs
 
-
-
     """serialization functions"""
     def serialize(self):
-
         inputs, outputs = [], []
 
         for socket in self.inputs:

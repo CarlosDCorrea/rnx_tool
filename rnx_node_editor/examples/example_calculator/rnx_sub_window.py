@@ -115,7 +115,6 @@ class RnxSubWindow(RnxNodeEditorWidget):
     def handle_node_context_menu(self, event):
         if DEBUG_CONTEXT:
             print("NODE:: Context Menu")
-        #  my form
 
         context_menu_node = QMenu()
         run_act = context_menu_node.addAction("Ejecutar")
@@ -138,8 +137,9 @@ class RnxSubWindow(RnxNodeEditorWidget):
             print("SELECTED:: ", selected.__class__.__name__)
             print("SELECTED GNODE::", selected.gr_node)
 
-
         if selected and action == run_act:
+            selected.mark_invalid(False)
+            selected.mark_dirty()
             selected.run()
 
         if selected and action == setting:
@@ -150,9 +150,6 @@ class RnxSubWindow(RnxNodeEditorWidget):
                 selected.mark_dirty()
                 selected.gr_node.setToolTip("")
                 selected.configure()
-
-
-
 
     def handle_edge_context_menu(self, event):
         if DEBUG_CONTEXT:

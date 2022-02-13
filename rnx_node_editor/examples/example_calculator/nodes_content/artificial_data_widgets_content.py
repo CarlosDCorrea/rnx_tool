@@ -27,7 +27,7 @@ class ArtificialDataNodeContent(NodeWidgetContent):
                 print("you should load a data set")
 
             self.node.mark_invalid()
-            self.node.gr_node.setToolTip(str("Select a data set"))
+            self.node.gr_node.setToolTip(str("Seleccione un conjunto de datos"))
             self.node.mark_descendents_dirty()
 
         if self.config.status == TypesConfig.Sphere.value:

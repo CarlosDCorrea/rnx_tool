@@ -10,7 +10,7 @@ from nodes_content.graphs_nodes_content import *
 from PyQt5.QtCore import QThread
 from config.ParametricMethodConfig import ParametricMethodConfigWindow
 from config.NoParametricMethodConfig import NoParametricMethodConfigWindow
-from config.ArtificialDataConfig import ArtificalDataConfigWindow
+from config.ArtificialDataConfig import ArtificialDataConfigWindow
 from config.RealDataConfig import RealDataConfigWindow
 from config.PartitionerConfig import PartitionerConfigWindow
 from nodes_content.partitioner_content import PartitionerContentNode
@@ -25,6 +25,8 @@ class RnxNodePCA(RnxNodeBase):
     op_title = "PCA"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = NoParametricMethodConfigWindow(self)
         self.content = NonParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
@@ -32,7 +34,6 @@ class RnxNodePCA(RnxNodeBase):
 
     def run(self):
         self.content.run()
-        print(self.content.result)
 
     def configure(self):
         self.config.show()
@@ -48,13 +49,20 @@ class RnxNodeMDS(RnxNodeBase):
     op_title = "MDS"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = NoParametricMethodConfigWindow(self)
         self.content = NonParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        return self.content.run()
+        self.thread = MyThread(self)
+        self.thread.finished.connect(self.is_run)
+        self.thread.start()
+
+    def is_run(self, x_pos):
+        self.set_pos(self.get_pos().x() + x_pos, self.get_pos().y())
 
     def configure(self):
         self.config.exec_()
@@ -65,11 +73,13 @@ class RnxNodeMDS(RnxNodeBase):
 
 @register_node(OP_NODE_KPCA)
 class RnxNodeKPCA(RnxNodeBase):
-    icon = ""
+    icon = "icons/kpca_32.png"
     op_code = OP_NODE_KPCA
     op_title = "KPCA"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = NoParametricMethodConfigWindow(self)
         self.content = NonParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
@@ -92,6 +102,8 @@ class RnxNodeLLE(RnxNodeBase):
     op_title = "LLE"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = ParametricMethodConfigWindow(self)
         self.content = ParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
@@ -110,11 +122,13 @@ class RnxNodeLLE(RnxNodeBase):
 
 @register_node(OP_NODE_LE)
 class RnxNodeLE(RnxNodeBase):
-    icon = ""
+    icon = "icons/le_32.png"
     op_code = OP_NODE_LE
     op_title = "LE"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = ParametricMethodConfigWindow(self)
         self.content = ParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
@@ -138,13 +152,28 @@ class RnxNodeISOMAP(RnxNodeBase):
     op_title = "ISOMAP"
 
     def init_inner_classes(self):
+        self.available_nodes = ['Datos Artificiales',
+                                'Datos']
         self.config = ParametricMethodConfigWindow(self)
         self.content = ParametricMethodsContent(self, self.config)
         self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
     def run(self):
-        return self.content.run()
+        self.thread = MyThread(self)
+        self.thread.finished.connect(self.is_run)
+        self.thread.start()
+
+    def is_run(self, x_pos):
+        print("el nodo se ha ejecutado")
+        """
+        When the independent thread finished, the paint method of the node
+        is not called, therefore the new state is not visible, to address it,
+        we update the pos node once the new thread is finished,
+        this calls the paint method and repaint the node
+        with the new state of the node.
+        """
+        self.set_pos(self.get_pos().x() + x_pos, self.get_pos().y())
 
     def configure(self):
         self.config.exec_()
@@ -154,7 +183,7 @@ class RnxNodeISOMAP(RnxNodeBase):
 
 @register_node(OP_NODE_RNX)
 class RnxNodeRNX(RnxNodeBase):
-    icon = ""
+    icon = "icons/rnx_16.png"
     op_code = OP_NODE_RNX
     op_title = "RNX"
 
@@ -164,8 +193,15 @@ class RnxNodeRNX(RnxNodeBase):
         self.score = None
         self.rnx = None
         self.is_configurable = False
-        self.methods_dict_output = []  # this list contains methods dicts
-
+        self.methods_dict_output = []
+        self.available_nodes = ['PCA',
+                                'MDS',
+                                'LLE',
+                                'LE',
+                                'KPCA',
+                                'ISOMAP',
+                                'Datos Artificiales',
+                                'Datos']
 
     def init_inner_classes(self):
         self.content = RnxMetricContent(self)
@@ -175,13 +211,12 @@ class RnxNodeRNX(RnxNodeBase):
         super().init_settings()
         self.iinput_multi_edges = True
 
-
     def run(self):
         self.thread = MyThread(self)
-        self.thread.finished.connect(self.is_runned)
+        self.thread.finished.connect(self.is_run)
         self.thread.start()
 
-    def is_runned(self, x_pos):
+    def is_run(self, x_pos):
         """
         When the independent thread finished, the paint method of the node
         is not called, therefore the new state is not visible, to address it,
@@ -203,7 +238,7 @@ class RnxNodeArtificialData(RnxNodeBase):
         super().__init__(scene, inputs=[], outputs=[0])
 
     def init_inner_classes(self):
-        self.config = ArtificalDataConfigWindow(self)
+        self.config = ArtificialDataConfigWindow(self)
         self.content = ArtificialDataNodeContent(self, self.config)
         self.config.addObservers(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
@@ -212,6 +247,8 @@ class RnxNodeArtificialData(RnxNodeBase):
         return self.content.run()
 
     def configure(self):
+        self.mark_invalid(False)
+        self.mark_dirty()
         self.config.exec_()
 
     def get_node_components(self):
@@ -237,7 +274,6 @@ class RnxNodeRealData(RnxNodeBase):
     def run(self):
          self.content.run()
 
-
     def get_node_components(self):
         value = self.content.get_components()
         return value
@@ -247,6 +283,7 @@ class RnxNodeRealData(RnxNodeBase):
         self.config.addSeparators(separators)
         self.config.exec_()
 
+
 @register_node(OP_NODE_PARTITIONER)
 class RnxNodePartitioner(RnxNodeBase):
     icon = "icons/real_data.png"
@@ -255,6 +292,14 @@ class RnxNodePartitioner(RnxNodeBase):
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[0], outputs=[0])
+        self.available_nodes = ['PCA',
+                                'MDS',
+                                'LLE',
+                                'LE',
+                                'KPCA',
+                                'ISOMAP',
+                                'Datos Artificiales',
+                                'Datos']
 
     def init_inner_classes(self):
         self.config = PartitionerConfigWindow(self)
@@ -262,19 +307,26 @@ class RnxNodePartitioner(RnxNodeBase):
         self.config.addObserver(self.content)
         self.gr_node = NodeBaseGraphicsNode(self)
 
-
     def run(self):
          self.content.run()
 
     def configure(self):
-
         input_node = self.get_input()
 
         if not input_node:
-            self.gr_node.setToolTip("There are missing inputs")
+            self.gr_node.setToolTip("No hay ningún nodo conectado")
             self.mark_invalid()
             return
 
+        print("input_node.get_node_components() in partitioner::", input_node.get_node_components())
+
+        if input_node.get_node_components() is None:
+            self.mark_invalid()
+            self.gr_node.setToolTip("el nodo conectado a este no se ha ejecutado")
+            return
+
+        self.mark_invalid(False)
+        self.mark_dirty()
         headers = list(input_node.get_node_components().columns.values)
         self.config.addItems(headers)
         self.config.exec_()
@@ -282,7 +334,6 @@ class RnxNodePartitioner(RnxNodeBase):
     def get_node_components(self):
         value = self.content.get_components()
         return value
-
 
 
 @register_node(OP_NODE_SCATTER_PLOT)
@@ -293,6 +344,14 @@ class RnxNodeScatterPlot(RnxNodeBase):
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[2], outputs=[])
+        self.available_nodes = ['PCA',
+                                'MDS',
+                                'LLE',
+                                'LE',
+                                'KPCA',
+                                'ISOMAP',
+                                'Datos Artificiales',
+                                'Datos']
 
     def init_inner_classes(self):
         self.content = GraphsNodesContent(self)
@@ -300,13 +359,17 @@ class RnxNodeScatterPlot(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
+        if input_node.title not in self.available_nodes:
+            self.mark_invalid()
+            self.gr_node.setToolTip("El nodo conectado no es válido")
+            return
+
         self.data = input_node.get_node_components()
         if not self.content.generate_graph(input_node, self.data.shape[1]):
             return
         else:
             self.mark_dirty(False)
             self.mark_invalid(False)
-
 
 
 @register_node(OP_NODE_LINE_CHART)
@@ -317,6 +380,7 @@ class RnxNodeLineChart(RnxNodeBase):
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[2], outputs=[])
+        self.available_nodes = ['RNX']
 
     def init_inner_classes(self):
         self.content = LineGraphContent(self)
@@ -324,11 +388,22 @@ class RnxNodeLineChart(RnxNodeBase):
 
     def run(self):
         input_node = self.get_input()
-        # self.y = input_node.rnx
-        # self.score = input_node.score
-        # self.previous_method_name = input_node.previous_method
-        #
-        # self.content.text_rnx.setText(self.content_labels[1] + str(self.score))
+
+        if not input_node:
+            self.mark_invalid()
+            self.gr_node.setToolTip("No hay ningún nodo RNX conectado")
+            return
+
+        if input_node.title not in self.available_nodes:
+            self.mark_invalid()
+            self.gr_node.setToolTip("input no válido")
+            return
+
+        if not input_node.methods_dict_output:
+            self.mark_invalid()
+            self.gr_node.setToolTip("RNX no tiene evaluaciones que gráficar")
+            return
+
         self.content.generate_line_chart(input_node.methods_dict_output)
         self.mark_dirty(False)
         self.mark_invalid(False)
@@ -342,6 +417,14 @@ class RnxNodeDataTable(RnxNodeBase):
 
     def __init__(self, scene):
         super().__init__(scene, inputs=[1], outputs=[])
+        self.available_nodes = ['PCA',
+                                'MDS',
+                                'LLE',
+                                'LE',
+                                'KPCA',
+                                'ISOMAP',
+                                'Datos Artificiales',
+                                'Datos']
 
     def init_inner_classes(self):
         self.content = TableOfDataNode(self)
@@ -350,8 +433,9 @@ class RnxNodeDataTable(RnxNodeBase):
     def run(self):
         input_node = self.get_input()
         data = input_node.get_node_components()
+        self.mark_dirty(False)
+        self.mark_invalid(False)
         self.content.createTable(data)
-
 
 
 class MyThread(QThread):

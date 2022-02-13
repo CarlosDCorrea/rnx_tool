@@ -147,15 +147,14 @@ class RnxNodeWindow(QMainWindow):
             return True
 
         # The second parameter is a label which is white, and therefore in the style file it has been changed
-        res = QMessageBox.warning(self, "About to loose your progress",
-                                  "The project has changes without \n save, would you like to save it?",
+        res = QMessageBox.warning(self, "Estas por perder tu progreso",
+                                  "El proyecto tiene cambios sin guardar \n ¿Te gustaría guardarlos?",
                                   QMessageBox.Save | QMessageBox.Discard | QMessageBox.Cancel)
 
         if res == QMessageBox.Save:
             return self.on_file_save()
         elif res == QMessageBox.Cancel:
             return False
-
         return True
 
     def closeEvent(self, event: QCloseEvent) -> None:

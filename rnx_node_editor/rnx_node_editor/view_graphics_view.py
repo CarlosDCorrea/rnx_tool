@@ -195,7 +195,6 @@ class ViewQGraphicsView(QGraphicsView):
         super().mousePressEvent(event)
 
     def leftMouseButtonRelease(self, event: QMouseEvent) -> None:
-
         item = self.get_item_at_click(event)
 
         if hasattr(item, 'node') or isinstance(item, EdgeGraphicsEdge) or not item:
@@ -343,10 +342,9 @@ class ViewQGraphicsView(QGraphicsView):
         try:
             if DEBUG: print("The mode has changed to on")
             if DEBUG: print("assign start socket")
-            # self.previous_edge = item.socket.edges
+
             self.drag_start_socket = item.socket
-            #  A partir de aquí es posible que inicie el bug en el programa
-            self.drag_edge = Edge(self.scene.scene, item.socket, None, EDGE_CURVE)  # here the drag view is created
+            self.drag_edge = Edge(self.scene.scene, item.socket, None, EDGE_CURVE)
             if DEBUG: print("The edge view created", self.drag_edge)
         except Exception as e:
             dump_exception(e)
@@ -360,9 +358,6 @@ class ViewQGraphicsView(QGraphicsView):
 
         try:
             if isinstance(item, SocketGraphicsSocket):
-                """
-                Here we will to solve the previous bug
-                """
                 if item.socket != self.drag_start_socket:
 
                     if not item.socket.is_multi_edges:
@@ -380,11 +375,6 @@ class ViewQGraphicsView(QGraphicsView):
 
                         if socket.is_input:
                             socket.node.on_input_changed(new_edge)
-                        """
-                        it can be useful we can play with it
-                        if not socket.is_input:
-                            socket.node.on_input_changed(new_edge)
-                        """
 
                     self.scene.scene.history.store_history("Edge Created by dragging", set_modified=True)
 
@@ -392,9 +382,7 @@ class ViewQGraphicsView(QGraphicsView):
         except Exception as e:
             dump_exception(e)
 
-        # if DEBUG: print("About to set socket to previous edge ", self.previous_edge)
         if DEBUG: print("The edge has been destroyed")
-
         return False
 
     def wheelEvent(self, event: QWheelEvent) -> None:

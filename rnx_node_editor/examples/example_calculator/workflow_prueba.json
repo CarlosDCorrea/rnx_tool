@@ -1,0 +1,702 @@
+{
+    "id": 1582101532976,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 1582231051232,
+            "title": "PCA",
+            "pos_x": -2649.9176473617536,
+            "pos_y": -841.6140279769894,
+            "inputs": [
+                {
+                    "id": 1582226271296,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582230766544,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 1
+        },
+        {
+            "id": 1582226271536,
+            "title": "KPCA",
+            "pos_x": -2671.5625000000005,
+            "pos_y": -1014.6875000000001,
+            "inputs": [
+                {
+                    "id": 1582227963088,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1581806200816,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 6
+        },
+        {
+            "id": 1582231504928,
+            "title": "Scatter Plot",
+            "pos_x": -2351.5625000000005,
+            "pos_y": -995.6875000000001,
+            "inputs": [
+                {
+                    "id": 1582231773632,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582231776992,
+            "title": "Scatter Plot",
+            "pos_x": -2322.5625000000005,
+            "pos_y": -815.6875000000001,
+            "inputs": [
+                {
+                    "id": 1582231775792,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582231774304,
+            "title": "Datos Artificiales",
+            "pos_x": -2871.5625000000005,
+            "pos_y": -912.6875000000001,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1582231774544,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1582230391392,
+            "title": "RNX",
+            "pos_x": -2121.5625000000005,
+            "pos_y": -924.6875000000001,
+            "inputs": [
+                {
+                    "id": 1582229490704,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1582229490224,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582236066528,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1582236158272,
+            "title": "Line Chart",
+            "pos_x": -1882.8124999999995,
+            "pos_y": -900.6249999999999,
+            "inputs": [
+                {
+                    "id": 1582236159376,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 13
+        },
+        {
+            "id": 1582239155872,
+            "title": "Datos Artificiales",
+            "pos_x": -2949.140624999999,
+            "pos_y": -718.1249999999998,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1582239155776,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1582230915296,
+            "title": "KPCA",
+            "pos_x": -2592.890624999999,
+            "pos_y": -764.3749999999998,
+            "inputs": [
+                {
+                    "id": 1582239574000,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582239573952,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 6
+        },
+        {
+            "id": 1582239154768,
+            "title": "Scatter Plot",
+            "pos_x": -2247.890624999999,
+            "pos_y": -730.6249999999998,
+            "inputs": [
+                {
+                    "id": 1582239155056,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582231734928,
+            "title": "PCA",
+            "pos_x": -2599.140624999999,
+            "pos_y": -559.3749999999998,
+            "inputs": [
+                {
+                    "id": 1582231734640,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582231734688,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 1
+        },
+        {
+            "id": 1582240603056,
+            "title": "Scatter Plot",
+            "pos_x": -2305.390624999999,
+            "pos_y": -556.8749999999998,
+            "inputs": [
+                {
+                    "id": 1582237328624,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582225618880,
+            "title": "Tabla de datos",
+            "pos_x": -2124.140624999999,
+            "pos_y": -880.6249999999998,
+            "inputs": [
+                {
+                    "id": 1582237325920,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 14
+        },
+        {
+            "id": 1582237475168,
+            "title": "RNX",
+            "pos_x": -2052.7906249999987,
+            "pos_y": -609.3749999999998,
+            "inputs": [
+                {
+                    "id": 1582237475312,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1582237475360,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582237475408,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1582237476608,
+            "title": "Line Chart",
+            "pos_x": -1836.640624999999,
+            "pos_y": -618.1249999999998,
+            "inputs": [
+                {
+                    "id": 1582237476800,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 13
+        },
+        {
+            "id": 1580550098752,
+            "title": "PCA",
+            "pos_x": -2588.4374999999995,
+            "pos_y": -66.328125,
+            "inputs": [
+                {
+                    "id": 1582239278944,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582239277312,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 1
+        },
+        {
+            "id": 1580550096880,
+            "title": "Scatter Plot",
+            "pos_x": -2221.562499999999,
+            "pos_y": -268.8281249999999,
+            "inputs": [
+                {
+                    "id": 1582239279040,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582239279328,
+            "title": "Line Chart",
+            "pos_x": -1825.9374999999995,
+            "pos_y": -125.078125,
+            "inputs": [
+                {
+                    "id": 1582230445168,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 13
+        },
+        {
+            "id": 1582239277216,
+            "title": "Tabla de datos",
+            "pos_x": -2113.4374999999995,
+            "pos_y": -387.5781249999999,
+            "inputs": [
+                {
+                    "id": 1582230443200,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 1
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 14
+        },
+        {
+            "id": 1582230445504,
+            "title": "Datos Artificiales",
+            "pos_x": -2938.4374999999995,
+            "pos_y": -225.07812499999977,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1582230445072,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1582230443296,
+            "title": "KPCA",
+            "pos_x": -2582.1874999999995,
+            "pos_y": -271.3281249999999,
+            "inputs": [
+                {
+                    "id": 1582230443104,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582230442336,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 6
+        },
+        {
+            "id": 1582230444112,
+            "title": "Scatter Plot",
+            "pos_x": -2294.6874999999995,
+            "pos_y": -63.828125,
+            "inputs": [
+                {
+                    "id": 1582230443680,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 12
+        },
+        {
+            "id": 1582230442864,
+            "title": "RNX",
+            "pos_x": -2041.9874999999993,
+            "pos_y": -116.328125,
+            "inputs": [
+                {
+                    "id": 1582230444928,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1582230444352,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1582230443344,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1582231771504,
+            "title": "Datos",
+            "pos_x": -1835.937499999999,
+            "pos_y": -365.23437499999983,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1582231759216,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 10
+        }
+    ],
+    "edges": [
+        {
+            "id": 1582231050848,
+            "edge_type": 2,
+            "start": 1582231774544,
+            "end": 1582227963088
+        },
+        {
+            "id": 1582231775216,
+            "edge_type": 2,
+            "start": 1582231774544,
+            "end": 1582226271296
+        },
+        {
+            "id": 1582140152032,
+            "edge_type": 2,
+            "start": 1582230766544,
+            "end": 1582231775792
+        },
+        {
+            "id": 1582226188368,
+            "edge_type": 2,
+            "start": 1581806200816,
+            "end": 1582231773632
+        },
+        {
+            "id": 1582230445600,
+            "edge_type": 2,
+            "start": 1581806200816,
+            "end": 1582229490704
+        },
+        {
+            "id": 1582229490848,
+            "edge_type": 2,
+            "start": 1582230766544,
+            "end": 1582229490704
+        },
+        {
+            "id": 1582236136208,
+            "edge_type": 2,
+            "start": 1582231774544,
+            "end": 1582229490224
+        },
+        {
+            "id": 1582236156928,
+            "edge_type": 2,
+            "start": 1582236066528,
+            "end": 1582236159376
+        },
+        {
+            "id": 1582239082480,
+            "edge_type": 2,
+            "start": 1582239155776,
+            "end": 1582239574000
+        },
+        {
+            "id": 1582239574096,
+            "edge_type": 2,
+            "start": 1582239573952,
+            "end": 1582239155056
+        },
+        {
+            "id": 1582231734880,
+            "edge_type": 2,
+            "start": 1582239155776,
+            "end": 1582231734640
+        },
+        {
+            "id": 1582239154480,
+            "edge_type": 2,
+            "start": 1582231734688,
+            "end": 1582237328624
+        },
+        {
+            "id": 1582239574240,
+            "edge_type": 2,
+            "start": 1582239573952,
+            "end": 1582237325920
+        },
+        {
+            "id": 1582237475120,
+            "edge_type": 2,
+            "start": 1582231734688,
+            "end": 1582237475312
+        },
+        {
+            "id": 1582237475264,
+            "edge_type": 2,
+            "start": 1582239573952,
+            "end": 1582237475312
+        },
+        {
+            "id": 1582237475456,
+            "edge_type": 2,
+            "start": 1582239155776,
+            "end": 1582237475360
+        },
+        {
+            "id": 1582237476224,
+            "edge_type": 2,
+            "start": 1582237475408,
+            "end": 1582237476800
+        },
+        {
+            "id": 1582230445360,
+            "edge_type": 2,
+            "start": 1582230443344,
+            "end": 1582230445168
+        },
+        {
+            "id": 1582230444832,
+            "edge_type": 2,
+            "start": 1582239277312,
+            "end": 1582230444928
+        },
+        {
+            "id": 1582230443824,
+            "edge_type": 2,
+            "start": 1582230445072,
+            "end": 1582230443104
+        },
+        {
+            "id": 1582230442288,
+            "edge_type": 2,
+            "start": 1582230442336,
+            "end": 1582230444928
+        },
+        {
+            "id": 1582230442672,
+            "edge_type": 2,
+            "start": 1582230442336,
+            "end": 1582239279040
+        },
+        {
+            "id": 1582242292304,
+            "edge_type": 2,
+            "start": 1582230445072,
+            "end": 1582230444352
+        },
+        {
+            "id": 1582242292880,
+            "edge_type": 2,
+            "start": 1582239277312,
+            "end": 1582230443680
+        },
+        {
+            "id": 1582242293696,
+            "edge_type": 2,
+            "start": 1582230445072,
+            "end": 1582239278944
+        },
+        {
+            "id": 1582242293840,
+            "edge_type": 2,
+            "start": 1582230442336,
+            "end": 1582230443200
+        }
+    ]
+}

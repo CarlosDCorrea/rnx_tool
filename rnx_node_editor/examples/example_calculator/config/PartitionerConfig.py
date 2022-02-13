@@ -1,26 +1,25 @@
-from PyQt5.QtWidgets import QDialog, QVBoxLayout, QPushButton, QLabel, QHBoxLayout, QComboBox
+from PyQt5.QtWidgets import QDialog, QVBoxLayout, QPushButton, QLabel, QFormLayout, QComboBox
 from PyQt5.QtCore import Qt
 
-class PartitionerConfigWindow(QDialog):
 
+class PartitionerConfigWindow(QDialog):
     def __init__(self, node, parent=None):
         super().__init__(parent)
         self.node = node
         self.observers = []
         self.column = None
-        self.setFixedSize(300, 200)
         self.setWindowTitle("Configuración  de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
         self.layout = QVBoxLayout()
-        dataLabel = QHBoxLayout()
-        optionsLabel = QHBoxLayout()
-        # def combo box
-        self.options = QComboBox()
+        dataLabel = QFormLayout()
+        optionsLabel = QFormLayout()
 
-        dataLabel.addWidget(QLabel("Columna"))
-        dataLabel.addWidget(self.options)
+        self.options = QComboBox()
+        self.options.setStyleSheet("color: #ffffff; background-color: #474747")
+
+        dataLabel.addRow(QLabel("Seleccione una columna"), self.options)
 
         self.save = QPushButton("Ok", self)
         self.cancel = QPushButton("Cancelar", self)
@@ -34,7 +33,6 @@ class PartitionerConfigWindow(QDialog):
         self.layout.addLayout(dataLabel)
         self.layout.addLayout(optionsLabel)
         self.setLayout(self.layout)
-        self.setFixedSize(300, 200)
 
         self.setWindowModality(Qt.ApplicationModal)
 

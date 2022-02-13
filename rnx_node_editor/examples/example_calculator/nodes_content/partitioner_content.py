@@ -1,14 +1,13 @@
 from rnx_node_editor.node_widget_node import NodeWidgetContent
 
-class PartitionerContentNode(NodeWidgetContent):
 
+class PartitionerContentNode(NodeWidgetContent):
     def __init__(self, node, config):
         super().__init__(node)
         self.config = config
         self.data_returned = None
 
     def run(self):
-
         data = self.node.get_input().get_node_components().copy()
         data.pop(self.config.column)
         self.data_returned = data

@@ -14,18 +14,15 @@ class Edge(Serializable):
         super().__init__()
         self.scene = scene
 
-        # default init
         self._source = None
         self._target = None
 
-        #  Init the data that the edge will receive from node
         self.data = None
 
         self.source = source
         self.target = target
         self.type_edge = type_edge
 
-        # print(f"Edge: {self.gr_edge.pos_source} to {self.gr_edge.pos_target}")
         self.scene.add_edge(self)
 
     def __str__(self):
@@ -39,14 +36,11 @@ class Edge(Serializable):
         return self._source
 
     @source.setter
-    def source(self, value):   # If instead of value, source is put it wont work
-        # if i were assigned to some socket and it receive other edge, delete me
+    def source(self, value):
         if self._source:
             self._source.remove_edge(self)
 
-        # assign new source socket
         self._source = value
-        # add edge to the socket class
         if self.source:
             self.source.add_edge(self)
 
@@ -56,7 +50,6 @@ class Edge(Serializable):
 
     @target.setter
     def target(self, value):
-        # if i were assigned to some socket and it receive other edge, delete me
         if self.target:
             self._target.remove_edge(self)
         self._target = value
@@ -110,18 +103,6 @@ class Edge(Serializable):
         self.gr_edge.update()
 
     def remove_from_socket(self):
-        # @TODO: FIX ME!
-        """
-        if self.source:
-
-            # Change if it is neccesary
-
-            self.source.remove_edge(None)   # if a put here del self.source.edge it
-            # will delete the edge from memory and it raise and exception error
-
-        if self.target:
-            self.target.remove_edge(None)
-        """
         self.source = None
         self.target = None
 
@@ -149,13 +130,6 @@ class Edge(Serializable):
         except Exception as e:
             if DEBUG: print("Exception", e, "Type of error", type(e))
 
-        """
-        other for of do this:
-        try:
-            self.scene.remove_edge(self)
-        except ValueError:
-            pass
-        """
         if DEBUG: print("Edge remove complete")
 
         # notify nodes from old sockets
@@ -186,5 +160,4 @@ class Edge(Serializable):
         self.source = dictionary[data['start']]
         self.target = dictionary[data['end']]
         self.type_edge = data['edge_type']
-
         return True

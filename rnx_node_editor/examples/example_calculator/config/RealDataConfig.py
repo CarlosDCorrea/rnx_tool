@@ -1,10 +1,13 @@
 from PyQt5.QtWidgets import (QDialog,
                              QVBoxLayout,
+                             QFormLayout,
                              QPushButton,
                              QFileDialog,
                              QLabel,
                              QComboBox,
                              QHBoxLayout)
+
+from PyQt5.QtCore import Qt
 
 
 class RealDataConfigWindow(QDialog):
@@ -15,37 +18,37 @@ class RealDataConfigWindow(QDialog):
         self.path = None
         self.extention = None
         self.separator = None
-        self.setFixedSize(300, 200)
         self.setWindowTitle("Configuración de nodo: " + node.op_title)
         self.init_ui()
 
     def init_ui(self):
-        self.layout = QVBoxLayout()
-        self.separators_section = QHBoxLayout()
+        self.outer_layout = QVBoxLayout()
+        self.actions_layout = QHBoxLayout()
+        self.form_layout = QFormLayout()
+
+        self.options = QComboBox()
+        self.options.setStyleSheet("color: #ffffff; background-color: #474747")
+
+        self.title = QLabel("Selecciona un archivo.")
+        self.title.setAlignment(Qt.AlignCenter)
+
         self.button = QPushButton("Abrir archivo.")
         self.button.clicked.connect(self.openfile)
-        self.title = QLabel("Selecciona un archivo.")
-        self.options = QComboBox()
-
-        self.optionsLayout = QHBoxLayout()
         self.save = QPushButton("Ok")
         self.cancel = QPushButton("Cancelar")
-
-        self.optionsLayout.addWidget(self.save)
-        self.optionsLayout.addWidget(self.cancel)
-
-        self.separators_section.addWidget(QLabel("Elija un separador"))
-        self.separators_section.addWidget(self.options)
-
         self.save.clicked.connect(self.saveEvt)
         self.cancel.clicked.connect(self.cancelEvt)
+        self.actions_layout.addWidget(self.save)
+        self.actions_layout.addWidget(self.cancel)
 
-        self.layout.addWidget(self.title)
-        self.layout.addLayout(self.separators_section)
-        self.layout.addWidget(self.button)
-        self.layout.addLayout(self.optionsLayout)
+        self.form_layout.addRow(QLabel('Seleccione un separador:'), self.options)
 
-        self.setLayout(self.layout)
+        self.outer_layout.addWidget(self.title)
+        self.outer_layout.addLayout(self.form_layout)
+        self.outer_layout.addWidget(self.button)
+        self.outer_layout.addLayout(self.actions_layout)
+
+        self.setLayout(self.outer_layout)
 
     def addSeparators(self, separators):
         self.options.clear()

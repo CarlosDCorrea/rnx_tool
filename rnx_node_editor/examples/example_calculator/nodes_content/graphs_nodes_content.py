@@ -23,7 +23,7 @@ class GraphsNodesContent(NodeWidgetContent):
             self.graph_3d(input_node)
             return True
         elif dimension in [1, 2]:
-            self.graph(input_node, dimension) # debería recibir las dimensiones como parámetro
+            self.graph(dimension) # debería recibir las dimensiones como parámetro
             return True
         else:
             self.node.gr_node.setToolTip("Error: Dimensión 0 o menor")
@@ -33,8 +33,8 @@ class GraphsNodesContent(NodeWidgetContent):
         print("1")
         view_3d(input_node, self.node.data)
 
-    def graph(self, input_node, dimension):
-        view(input_node, dimension, self.node.data)
+    def graph(self, dimension):
+        view(dimension, self.node.data)
 
 
 class LineGraphContent(NodeWidgetContent):

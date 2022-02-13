@@ -1,0 +1,130 @@
+{
+    "id": 1909139481072,
+    "scene_width": 64000,
+    "scene_height": 64000,
+    "nodes": [
+        {
+            "id": 1909175889824,
+            "title": "Datos Artificiales",
+            "pos_x": -217.0,
+            "pos_y": -44.0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "id": 1909175976096,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 0
+                }
+            ],
+            "content": {},
+            "op_code": 9
+        },
+        {
+            "id": 1909175977056,
+            "title": "PCA",
+            "pos_x": 24.0,
+            "pos_y": -114.0,
+            "inputs": [
+                {
+                    "id": 1909178090112,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1909178090160,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 1
+                }
+            ],
+            "content": {
+                "value": 2
+            },
+            "op_code": 1
+        },
+        {
+            "id": 1909178093520,
+            "title": "RNX",
+            "pos_x": 263.1,
+            "pos_y": -12.0,
+            "inputs": [
+                {
+                    "id": 1909178808400,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 2,
+                    "socket_type": 1
+                },
+                {
+                    "id": 1909178810176,
+                    "index": 1,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 0
+                }
+            ],
+            "outputs": [
+                {
+                    "id": 1909178809840,
+                    "index": 0,
+                    "multi_edges": true,
+                    "position": 6,
+                    "socket_type": 2
+                }
+            ],
+            "content": {},
+            "op_code": 7
+        },
+        {
+            "id": 1909178808304,
+            "title": "Line Chart",
+            "pos_x": 509.0,
+            "pos_y": 2.0,
+            "inputs": [
+                {
+                    "id": 1909178809456,
+                    "index": 0,
+                    "multi_edges": false,
+                    "position": 2,
+                    "socket_type": 2
+                }
+            ],
+            "outputs": [],
+            "content": {},
+            "op_code": 13
+        }
+    ],
+    "edges": [
+        {
+            "id": 1909175977296,
+            "edge_type": 2,
+            "start": 1909175976096,
+            "end": 1909178090112
+        },
+        {
+            "id": 1911129626800,
+            "edge_type": 2,
+            "start": 1909178090160,
+            "end": 1909178808400
+        },
+        {
+            "id": 1909178093328,
+            "edge_type": 2,
+            "start": 1909175976096,
+            "end": 1909178810176
+        },
+        {
+            "id": 1910991379424,
+            "edge_type": 2,
+            "start": 1909178809840,
+            "end": 1909178809456
+        }
+    ]
+}
